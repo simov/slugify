@@ -1,0 +1,26 @@
+{
+    "name": "slugify",
+    "version": "0.1.0",
+    "description": "Slugifies a string.",
+    "keywords": [
+        "slugify",
+        "slug",
+        "url",
+        "urlify"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/simov/slugify",
+    "author": {
+        "name": "simo",
+        "email": "simeonvelichkov@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/simov/slugify.git"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*"
+    },
+    "main": "./lib/slugify"
+}
