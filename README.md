@@ -3,10 +3,14 @@
 
 This is vanilla javascript port of [node-slug](https://github.com/dodo/node-slug) so all credits goes to [dodo](https://github.com/dodo). The only difference is that this port does not support unicode characters!
 
+## DEPRECATED!
+
+Use the original module [**slug**](https://www.npmjs.com/package/slug) instead as it's already been ported to vanilla javascript.
+
 
 ## Install
 
-```shell
+```bash
 $ npm install slugify
 ```
 
@@ -23,6 +27,6 @@ slugify('some string', '_'); // if you prefer something else then '-' as seperat
 
 ## Tests
 
-```shell
+```bash
 $ mocha
 ```
