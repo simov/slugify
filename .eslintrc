@@ -1,0 +1,26 @@
+{
+  extends: 'standard',
+
+  // Mocha
+  globals: {
+    describe: true,
+    before: true,
+    it: true,
+    after: true
+  },
+
+  // Almost Standard
+  rules: {
+    // Disable: Closing curly brace does not appear on the same line as the subsequent block
+    'brace-style': [2, 'stroustrup'],
+
+    // Disable: Disallow duplicate keys in object literals
+    'no-dupe-keys': 'off',
+
+    // Disable: More than 1 blank line not allowed
+    'no-multiple-empty-lines': 'off',
+
+    // Disable: Block must not be padded by blank lines
+    'padded-blocks': 'off'
+  }
+}

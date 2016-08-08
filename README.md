@@ -1,32 +1,27 @@
 
-# Slugify
+# slugify
 
-This is vanilla javascript port of [node-slug](https://github.com/dodo/node-slug) so all credits goes to [dodo](https://github.com/dodo). The only difference is that this port does not support unicode characters!
+[![npm-version]][npm] [![travis-ci]][travis] [![coveralls-status]][coveralls]
 
-## DEPRECATED!
-
-Use the original module [**slug**](https://www.npmjs.com/package/slug) instead as it's already been ported to vanilla javascript.
-
-
-## Install
-
-```bash
-$ npm install slugify
-```
-
-
-## Usage
+This is vanilla javascript port of [node-slug](https://github.com/dodo/node-slug) so all credits goes to [dodo](https://github.com/dodo). The only difference here is that this port does not support unicode characters!
 
 ```js
-var slugify = require('slugify');
+var slugify = require('slugify')
 
-slugify('some string'); // returns some-string
-slugify('some string', '_'); // if you prefer something else then '-' as seperator
+// returns some-string
+slugify('some string')
+
+// if you prefer something else then '-' as seperator
+slugify('some string', '_')
 ```
 
+> Note that the original module [slug](https://www.npmjs.com/package/slug) has been ported to vanilla javascript.
 
-## Tests
 
-```bash
-$ mocha
-```
+  [npm-version]: http://img.shields.io/npm/v/slugify.svg?style=flat-square (NPM Package Version)
+  [travis-ci]: https://img.shields.io/travis/simov/slugify/master.svg?style=flat-square (Build Status - Travis CI)
+  [coveralls-status]: https://img.shields.io/coveralls/simov/slugify.svg?style=flat-square (Test Coverage - Coveralls)
+
+  [npm]: https://www.npmjs.com/package/slugify
+  [travis]: https://travis-ci.org/simov/slugify
+  [coveralls]: https://coveralls.io/r/simov/slugify?branch=master
