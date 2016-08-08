@@ -34,6 +34,6 @@
     "test": "npm run lint && npm run test-ci && echo Tests Passed",
     "test-ci": "mocha",
     "test-cov": "istanbul cover _mocha",
-    "lint": "eslint . test/ && echo Lint Passed"
+    "lint": "eslint **/*.js test/ && echo Lint Passed"
   }
 }
