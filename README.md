@@ -3,7 +3,7 @@
 
 [![npm-version]][npm] [![travis-ci]][travis] [![coveralls-status]][coveralls]
 
-This is vanilla javascript port of [node-slug](https://github.com/dodo/node-slug) so all credits goes to [dodo](https://github.com/dodo). The only difference here is that this port does not support unicode characters!
+This is vanilla javascript port of [node-slug](https://github.com/dodo/node-slug) so all credits goes to [dodo](https://github.com/dodo). This port does not support unicode characters!
 
 ```js
 var slugify = require('slugify')
@@ -15,7 +15,7 @@ slugify('some string')
 slugify('some string', '_')
 ```
 
-> Note that the original module [slug](https://www.npmjs.com/package/slug) has been ported to vanilla javascript.
+Note that the original [slug](https://www.npmjs.com/package/slug) module has been ported to vanilla javascript too.
 
 
   [npm-version]: http://img.shields.io/npm/v/slugify.svg?style=flat-square (NPM Package Version)
