@@ -1,5 +1,4 @@
 
-// https://github.com/django/django/blob/master/django/contrib/admin/static/admin/js/urlify.js
 var charMap = {
   // latin
   'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A', 'Æ': 'AE',
