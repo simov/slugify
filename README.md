@@ -11,7 +11,7 @@ var slugify = require('slugify')
 // returns some-string
 slugify('some string')
 
-// if you prefer something else then '-' as seperator
+// if you prefer something other than '-' as seperator
 slugify('some string', '_')
 ```
 
