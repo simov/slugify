@@ -3,6 +3,7 @@
   if (typeof exports === 'object') {
     module.exports = factory()
   }
+  /* istanbul ignore next */
   else if (typeof define === 'function' && define.amd) {
     define(factory)
   }
