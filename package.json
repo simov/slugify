@@ -35,5 +35,8 @@
     "test-ci": "mocha",
     "test-cov": "istanbul cover _mocha",
     "lint": "eslint **/*.js test/ && echo Lint Passed"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }
