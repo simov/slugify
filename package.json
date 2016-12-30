@@ -24,7 +24,7 @@
     "istanbul": "^0.4.4",
     "mocha": "^3.0.2"
   },
-  "main": "./lib/index.js",
+  "main": "./index.js",
   "files": [
     "LICENSE",
     "README.md",

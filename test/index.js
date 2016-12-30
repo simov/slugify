@@ -1,6 +1,6 @@
 
 var t = require('assert')
-var slugify = require('../lib')
+var slugify = require('../')
 
 
 describe('slugify', function () {
