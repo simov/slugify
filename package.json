@@ -16,25 +16,25 @@
     "url": "https://github.com/simov/slugify.git"
   },
   "devDependencies": {
-    "coveralls": "^2.11.12",
-    "eslint": "^3.2.2",
-    "eslint-config-standard": "^5.3.5",
-    "eslint-plugin-promise": "^2.0.1",
-    "eslint-plugin-standard": "^2.0.0",
-    "istanbul": "^0.4.4",
-    "mocha": "^3.0.2"
+    "coveralls": "^2.11.15",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
   },
   "main": "./index.js",
   "files": [
     "LICENSE",
     "README.md",
-    "lib/index.js"
+    "index.js"
   ],
   "scripts": {
     "test": "npm run lint && npm run test-ci && echo Tests Passed",
     "test-ci": "mocha",
     "test-cov": "istanbul cover _mocha",
-    "lint": "eslint **/*.js test/ && echo Lint Passed"
+    "lint": "eslint **/*.js && echo Lint Passed"
   },
   "engines": {
     "node": ">=4.0.0"
