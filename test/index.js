@@ -159,4 +159,9 @@ describe('slugify', function () {
       t.equal(slugify('foo ' + ch + ' bar baz'), 'foo-' + charMap[ch] + '-bar-baz')
     }
   })
+
+  it('replace custom characters', function () {
+    slugify.extend({'☢': 'radioactive'})
+    t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is-radioactive')
+  })
 })
