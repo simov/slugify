@@ -30,6 +30,13 @@ slugify.extend({'☢': 'radioactive'})
 slugify('unicode ♥ is ☢') // unicode-love-is-radioactive
 ```
 
+Keep in mind that the `extend` method extends/overrides the default `charMap` for the entire process. In case you need a fresh instance of the slugify's `charMap` object you have to clean up the module cache first:
+
+```js
+delete require.cache[require.resolve('slugify')]
+var slugify = require('slugify')
+```
+
 > This module was originally a vanilla javascript port of [node-slug][node-slug].<br>
 > Note that the original [slug][slug] module has been ported to vanilla javascript too.<br>
 > One major difference between the two modules is that `slugify` does not depend on the external [unicode][unicode] module.

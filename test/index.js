@@ -163,5 +163,10 @@ describe('slugify', function () {
   it('replace custom characters', function () {
     slugify.extend({'☢': 'radioactive'})
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is-radioactive')
+
+    delete require.cache[require.resolve('../')]
+    slugify = require('../')
+
+    t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is')
   })
 })
