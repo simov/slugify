@@ -17,7 +17,7 @@ slugify('some string', '_')  // some_string
 - Coerces foreign symbols to their english equivalent (check out the `charMap` in [index.js][index] for more details)
 - Works in the browser (window.slugify) and AMD/CommonJS-flavored module loaders
 
-Out of the box `slugify` comes with support for a handfull of Unicode symbols. For example the `☢` (radioactive) symbol is not defined in the `charMap` in [index.js][index] and therefore it will be stripped by default:
+Out of the box `slugify` comes with support for a handfull of Unicode symbols. For example the `☢` (radioactive) symbol is not defined in the `charMap` object in [index.js][index] and therefore it will be stripped by default:
 
 ```js
 slugify('unicode ♥ is ☢') // unicode-love-is
