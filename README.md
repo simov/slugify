@@ -42,7 +42,7 @@ var slugify = require('slugify')
 > One major difference between the two modules is that `slugify` does not depend on the external [unicode][unicode] module.
 
 
-  [npm-version]: http://img.shields.io/npm/v/slugify.svg?style=flat-square (NPM Package Version)
+  [npm-version]: https://img.shields.io/npm/v/slugify.svg?style=flat-square (NPM Package Version)
   [travis-ci]: https://img.shields.io/travis/simov/slugify/master.svg?style=flat-square (Build Status - Travis CI)
   [coveralls-status]: https://img.shields.io/coveralls/simov/slugify.svg?style=flat-square (Test Coverage - Coveralls)
 
