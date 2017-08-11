@@ -6,7 +6,7 @@ var slugify = require('../')
 describe('slugify', function () {
   it('replace whitespaces with replacement', function () {
     t.equal(slugify('foo bar baz'), 'foo-bar-baz')
-    t.equal(slugify('foo bar baz', '_'), 'foo_bar_baz')
+    t.equal(slugify('foo bar baz', {replacement: '_'}), 'foo_bar_baz')
   })
 
   it('remove trailing space if any', function () {
@@ -168,5 +168,10 @@ describe('slugify', function () {
     slugify = require('../')
 
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is')
+  })
+
+  it('translate result string to lower case', function () {
+    t.equal(slugify('Foo Bar Baz', {lowerCase: true}), 'foo-bar-baz')
+    t.equal(slugify('Foo Bar Baz', {replacement: '_', lowerCase: true}), 'foo_bar_baz')
   })
 })
