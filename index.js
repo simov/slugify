@@ -78,8 +78,8 @@
     '<': 'less', '>': 'greater'
   }
 
-  function replace (string, replacement) {
-    return string.split('').reduce(function (result, ch) {
+  function replace (string, opts = {}) {
+    string = string.split('').reduce(function (result, ch) {
       if (charMap[ch]) {
         ch = charMap[ch]
       }
@@ -91,9 +91,11 @@
       // trim leading/trailing spaces
       .replace(/^\s+|\s+$/g, '')
       // convert spaces
-      .replace(/[-\s]+/g, replacement || '-')
+      .replace(/[-\s]+/g, opts.replacement || '-')
       // remove trailing separator
-      .replace('#{replacement}$', '')
+      .replace('#{opts.replacement}$', '')
+      // return result or result in lower case if opts.lowerCase = true
+      return opts.lowerCase ? string.toLowerCase() : string
   }
 
   replace.extend = function (customMap) {
