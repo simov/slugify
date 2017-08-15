@@ -78,22 +78,29 @@
     '<': 'less', '>': 'greater'
   }
 
-  function replace (string, replacement) {
-    return string.split('').reduce(function (result, ch) {
-      if (charMap[ch]) {
-        ch = charMap[ch]
-      }
-      // allowed
-      ch = ch.replace(/[^\w\s$*_+~.()'"!\-:@]/g, '')
-      result += ch
-      return result
-    }, '')
+  function replace (string, options) {
+    options = (typeof options === 'string')
+      ? {replacement: options}
+      : options || {}
+
+    string = string.split('')
+      .reduce(function (result, ch) {
+        if (charMap[ch]) {
+          ch = charMap[ch]
+        }
+        // allowed
+        ch = ch.replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]/g, '')
+        result += ch
+        return result
+      }, '')
       // trim leading/trailing spaces
       .replace(/^\s+|\s+$/g, '')
       // convert spaces
-      .replace(/[-\s]+/g, replacement || '-')
+      .replace(/[-\s]+/g, options.replacement || '-')
       // remove trailing separator
       .replace('#{replacement}$', '')
+
+    return options.lower ? string.toLowerCase() : string
   }
 
   replace.extend = function (customMap) {

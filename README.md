@@ -17,6 +17,20 @@ slugify('some string', '_')  // some_string
 - Coerces foreign symbols to their english equivalent (check out the `charMap` in [index.js][index] for more details)
 - Works in the browser (window.slugify) and AMD/CommonJS-flavored module loaders
 
+## Options
+
+```js
+slugify('some string', {
+  replacement: '-',    // replace spaces with replacement
+  remove: null,        // regex to remove characters
+  lower: true          // result in lower case
+})
+```
+
+For example to remove `*+~.()'"!:@` from the result slug, you can use `slugify('..', {remove: /[$*_+~.()'"!\-:@]/g})`
+
+## Extend
+
 Out of the box `slugify` comes with support for a handfull of Unicode symbols. For example the `☢` (radioactive) symbol is not defined in the `charMap` object in [index.js][index] and therefore it will be stripped by default:
 
 ```js
@@ -36,6 +50,8 @@ Keep in mind that the `extend` method extends/overrides the default `charMap` fo
 delete require.cache[require.resolve('slugify')]
 var slugify = require('slugify')
 ```
+
+---
 
 > This module was originally a vanilla javascript port of [node-slug][node-slug].<br>
 > Note that the original [slug][slug] module has been ported to vanilla javascript too.<br>

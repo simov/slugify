@@ -29,6 +29,21 @@ describe('slugify', function () {
     })
   })
 
+  it('options.replacement', function () {
+    t.equal(slugify('foo bar baz', {replacement: '_'}), 'foo_bar_baz')
+  })
+
+  it('options.remove', function () {
+    t.equal(slugify(
+      'foo *+~.() bar \'"!:@ baz',
+      {remove: /[$*_+~.()'"!\-:@]/g}
+    ), 'foo-bar-baz')
+  })
+
+  it('options.lower', function () {
+    t.equal(slugify('Foo bAr baZ', {lower: true}), 'foo-bar-baz')
+  })
+
   it('replace latin chars', function () {
     var charMap = {
       'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A', 'Æ': 'AE',

@@ -1,7 +1,7 @@
 {
   "name": "slugify",
   "version": "1.1.0",
-  "description": "Slugifies a string",
+  "description": "Slugifies a String",
   "keywords": [
     "slugify",
     "slug",
@@ -37,6 +37,6 @@
     "lint": "eslint **/*.js && echo Lint Passed"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": "^4.0.0"
   }
 }
