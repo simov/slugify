@@ -65,8 +65,8 @@
     // serbian latin
     'đ': 'dj', 'ǌ': 'nj', 'ǉ': 'lj', 'Đ': 'DJ', 'ǋ': 'NJ', 'ǈ': 'LJ',
     // serbian cyrillic
-    'ђ': 'dj', 'ј': 'j', 'љ':'lj', 'њ':'nj', 'ћ':'c', 'џ':'dz', 'Ђ': 'DJ', 'Ј': 'J',
-    'Љ':'LJ', 'Њ':'NJ', 'Ћ':'C', 'Џ':'DZ',
+    'ђ': 'dj', 'ј': 'j', 'љ': 'lj', 'њ': 'nj', 'ћ': 'c', 'џ': 'dz', 'Ђ': 'DJ', 'Ј': 'J',
+    'Љ': 'LJ', 'Њ': 'NJ', 'Ћ': 'C', 'Џ': 'DZ',
     // currency
     '€': 'euro', '₢': 'cruzeiro', '₣': 'french franc', '£': 'pound',
     '₤': 'lira', '₥': 'mill', '₦': 'naira', '₧': 'peseta', '₨': 'rupee',

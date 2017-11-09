@@ -163,10 +163,8 @@ describe('slugify', function () {
       cyrillic: 'А а, Б б, В в, Г г, Д д, Ђ ђ, Е е, Ж ж, З з, И и, Ј ј, К к, Л л, Љ љ, М м, Н н, ' +
       'Њ њ, О о, П п, Р р, С с, Т т, Ћ ћ, У у, Ф ф, Х х, Ц ц, Ч ч, Џ џ, Ш ш'
     }
-
     t.equal(slugify(alphabets.latin), 'A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Z-z-Z-z-I-i-J-j-K-k-L-l-Lj-lj-M-m-N-n-Nj-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-C-c-Dz-dz-S-s')
     t.equal(slugify(alphabets.cyrillic), 'A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Zh-zh-Z-z-I-i-J-j-K-k-L-l-LJ-lj-M-m-N-n-NJ-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-Ch-ch-DZ-dz-Sh-sh')
-
   })
 
   it('replace currencies', function () {
