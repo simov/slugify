@@ -2,7 +2,6 @@
 var t = require('assert')
 var slugify = require('../')
 
-
 describe('slugify', function () {
   it('replace whitespaces with replacement', function () {
     t.equal(slugify('foo bar baz'), 'foo-bar-baz')
@@ -144,6 +143,30 @@ describe('slugify', function () {
     for (var ch in charMap) {
       t.equal(slugify('foo ' + ch + ' bar baz'), 'foo-' + charMap[ch] + '-bar-baz')
     }
+  })
+
+  it('replace serbian chars', function () {
+    var charMap = {
+      'đ': 'dj', 'ǌ': 'nj', 'ǉ': 'lj', 'Đ': 'DJ', 'ǋ': 'NJ', 'ǈ': 'LJ', 'ђ': 'dj', 'ј': 'j',
+      'љ': 'lj', 'њ': 'nj', 'ћ': 'c', 'џ': 'dz', 'Ђ': 'DJ', 'Ј': 'J', 'Љ': 'LJ', 'Њ': 'NJ',
+      'Ћ': 'C', 'Џ': 'DZ'
+    }
+    for (var ch in charMap) {
+      t.equal(slugify('foo ' + ch + ' bar baz'), 'foo-' + charMap[ch] + '-bar-baz')
+    }
+  })
+
+  it('test serbian alphabets', function () {
+    var alphabets = {
+      latin: 'A a, B b, V v, G g, D d, Đ đ, E e, Ž ž, Z z, I i, J j, K k, L l, Lj lj, M m, N n, ' +
+      'Nj nj, O o, P p, R r, S s, T t, Ć ć, U u, F f, H h, C c, Č č, Dž dž, Š š',
+      cyrillic: 'А а, Б б, В в, Г г, Д д, Ђ ђ, Е е, Ж ж, З з, И и, Ј ј, К к, Л л, Љ љ, М м, Н н, ' +
+      'Њ њ, О о, П п, Р р, С с, Т т, Ћ ћ, У у, Ф ф, Х х, Ц ц, Ч ч, Џ џ, Ш ш'
+    }
+
+    t.equal(slugify(alphabets.latin), 'A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Z-z-Z-z-I-i-J-j-K-k-L-l-Lj-lj-M-m-N-n-Nj-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-C-c-Dz-dz-S-s')
+    t.equal(slugify(alphabets.cyrillic), 'A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Zh-zh-Z-z-I-i-J-j-K-k-L-l-LJ-lj-M-m-N-n-NJ-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-Ch-ch-DZ-dz-Sh-sh')
+
   })
 
   it('replace currencies', function () {
