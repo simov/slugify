@@ -30,6 +30,7 @@
     "README.md",
     "index.js"
   ],
+  "types": "index.d.ts",
   "scripts": {
     "test": "npm run lint && npm run test-ci && echo Tests Passed",
     "test-ci": "mocha",
