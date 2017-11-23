@@ -1,11 +1,13 @@
 
 var t = require('assert')
-var slugify = require('./')
-var build = require('./build')
 
 describe('slugify', function () {
+  var build = require('./build')
+  var slugify
+
   before(function () {
     build.replace()
+    slugify = require('./')
   })
 
   it('duplicates characters are not allowed', function () {
