@@ -51,6 +51,13 @@ delete require.cache[require.resolve('slugify')]
 var slugify = require('slugify')
 ```
 
+## Contribute
+
+1. Add chars to `charmap.json`
+2. Run tests `npm test`
+3. The tests will build the charmap in `index.js` and will sort the `charmap.json`
+4. Commit **all** modified files
+
 ---
 
 > This module was originally a vanilla javascript port of [node-slug][node-slug].<br>

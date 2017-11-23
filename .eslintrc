@@ -5,6 +5,10 @@
     mocha: true
   },
 
+  globals: {
+    define: true
+  },
+
   // Almost Standard
   rules: {
     // Disable: Closing curly brace does not appear on the same line as the subsequent block

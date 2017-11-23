@@ -1,8 +1,26 @@
 
 var t = require('assert')
-var slugify = require('../')
+var slugify = require('./')
+var build = require('./build')
 
 describe('slugify', function () {
+  before(function () {
+    build.replace()
+  })
+
+  it('duplicates characters are not allowed', function () {
+    var result = build.duplicates()
+    t.equal(
+      result.duplicates.length,
+      0,
+      'duplicates: ' + result.duplicates
+        .map(function (pair) {
+          return pair.key
+        })
+        .join()
+    )
+  })
+
   it('replace whitespaces with replacement', function () {
     t.equal(slugify('foo bar baz'), 'foo-bar-baz')
     t.equal(slugify('foo bar baz', '_'), 'foo_bar_baz')
@@ -156,17 +174,6 @@ describe('slugify', function () {
     }
   })
 
-  it('test serbian alphabets', function () {
-    var alphabets = {
-      latin: 'A a, B b, V v, G g, D d, Đ đ, E e, Ž ž, Z z, I i, J j, K k, L l, Lj lj, M m, N n, ' +
-      'Nj nj, O o, P p, R r, S s, T t, Ć ć, U u, F f, H h, C c, Č č, Dž dž, Š š',
-      cyrillic: 'А а, Б б, В в, Г г, Д д, Ђ ђ, Е е, Ж ж, З з, И и, Ј ј, К к, Л л, Љ љ, М м, Н н, ' +
-      'Њ њ, О о, П п, Р р, С с, Т т, Ћ ћ, У у, Ф ф, Х х, Ц ц, Ч ч, Џ џ, Ш ш'
-    }
-    t.equal(slugify(alphabets.latin), 'A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Z-z-Z-z-I-i-J-j-K-k-L-l-Lj-lj-M-m-N-n-Nj-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-C-c-Dz-dz-S-s')
-    t.equal(slugify(alphabets.cyrillic), 'A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Zh-zh-Z-z-I-i-J-j-K-k-L-l-LJ-lj-M-m-N-n-NJ-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-Ch-ch-DZ-dz-Sh-sh')
-  })
-
   it('replace currencies', function () {
     var charMap = {
       '€': 'euro', '₢': 'cruzeiro', '₣': 'french franc', '£': 'pound',
@@ -200,9 +207,56 @@ describe('slugify', function () {
     slugify.extend({'☢': 'radioactive'})
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is-radioactive')
 
-    delete require.cache[require.resolve('../')]
-    slugify = require('../')
+    delete require.cache[require.resolve('./')]
+    slugify = require('./')
 
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is')
+  })
+
+  describe('alphabets', function () {
+    it('bulgarian', function () {
+      var alphabet =
+        'А а, Б б, В в, Г г, Д д, Е е, Ж ж, З з, И и, Й й, ' +
+        'К к, Л л, М м, Н н, О о, П п, Р р, С с, Т т, У у, ' +
+        'Ф ф, Х х, Ц ц, Ч ч, Ш ш, Щ щ, Ъ ъ, ѝ ь, Ю ю, Я я'
+
+      t.equal(slugify(alphabet),
+        'A-a-B-b-V-v-G-g-D-d-E-e-Zh-zh-Z-z-I-i-J-j-K-k-L-l-M-m-N-n-O-o-P-p-R-r-S-s-T-t-U-u-F-f-H-h-C-c-Ch-ch-Sh-sh-Sh-sh-U-u-Yu-yu-Ya-ya'
+      )
+    })
+
+    it('serbian', function () {
+      var alphabets = {
+        latin:
+          'A a, B b, V v, G g, D d, Đ đ, E e, Ž ž, Z z, I i, ' +
+          'J j, K k, L l, Lj lj, M m, N n, Nj nj, O o, P p, R r, ' +
+          'S s, T t, Ć ć, U u, F f, H h, C c, Č č, Dž dž, Š š',
+        cyrillic:
+          'А а, Б б, В в, Г г, Д д, Ђ ђ, Е е, Ж ж, З з, И и, ' +
+          'Ј ј, К к, Л л, Љ љ, М м, Н н, Њ њ, О о, П п, Р р, ' +
+          'С с, Т т, Ћ ћ, У у, Ф ф, Х х, Ц ц, Ч ч, Џ џ, Ш ш'
+      }
+      t.equal(slugify(alphabets.latin),
+        'A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Z-z-Z-z-I-i-J-j-K-k-L-l-Lj-lj-M-m-N-n-Nj-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-C-c-Dz-dz-S-s'
+      )
+      t.equal(slugify(alphabets.cyrillic),
+        'A-a-B-b-V-v-G-g-D-d-DJ-dj-E-e-Zh-zh-Z-z-I-i-J-j-K-k-L-l-LJ-lj-M-m-N-n-NJ-nj-O-o-P-p-R-r-S-s-T-t-C-c-U-u-F-f-H-h-C-c-Ch-ch-DZ-dz-Sh-sh'
+      )
+    })
+
+    it('turkish', function () {
+      var alphabet =
+        'A a, B b, C c, Ç ç, D d, E e, F f, G g, Ğ ğ, H h, ' +
+        'I ı, İ i, J j, K k, L l, M m, N n, O o, Ö ö, P p, ' +
+        'R r, S s, Ş ş, T t, U u, Ü ü, V v, Y y, Z z'
+
+      t.equal(slugify(alphabet),
+        'A-a-B-b-C-c-C-c-D-d-E-e-F-f-G-g-G-g-H-h-I-i-I-i-J-j-K-k-L-l-M-m-N-n-O-o-O-o-P-p-R-r-S-s-S-s-T-t-U-u-U-u-V-v-Y-y-Z-z'
+      )
+    })
+  })
+
+  after(() => {
+    build.sort()
   })
 })
