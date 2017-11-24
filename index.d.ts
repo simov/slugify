@@ -9,4 +9,4 @@ declare function slugify(
     | string,
 ): string;
 
-export = slugify;
+export default slugify;
