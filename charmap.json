@@ -1292,6 +1292,138 @@
     "value": "baht"
   },
   {
+    "key": "ა",
+    "value": "a"
+  },
+  {
+    "key": "ბ",
+    "value": "b"
+  },
+  {
+    "key": "გ",
+    "value": "g"
+  },
+  {
+    "key": "დ",
+    "value": "d"
+  },
+  {
+    "key": "ე",
+    "value": "e"
+  },
+  {
+    "key": "ვ",
+    "value": "v"
+  },
+  {
+    "key": "ზ",
+    "value": "z"
+  },
+  {
+    "key": "თ",
+    "value": "t"
+  },
+  {
+    "key": "ი",
+    "value": "i"
+  },
+  {
+    "key": "კ",
+    "value": "k"
+  },
+  {
+    "key": "ლ",
+    "value": "l"
+  },
+  {
+    "key": "მ",
+    "value": "m"
+  },
+  {
+    "key": "ნ",
+    "value": "n"
+  },
+  {
+    "key": "ო",
+    "value": "o"
+  },
+  {
+    "key": "პ",
+    "value": "p"
+  },
+  {
+    "key": "ჟ",
+    "value": "zh"
+  },
+  {
+    "key": "რ",
+    "value": "r"
+  },
+  {
+    "key": "ს",
+    "value": "s"
+  },
+  {
+    "key": "ტ",
+    "value": "t"
+  },
+  {
+    "key": "უ",
+    "value": "u"
+  },
+  {
+    "key": "ფ",
+    "value": "f"
+  },
+  {
+    "key": "ქ",
+    "value": "k"
+  },
+  {
+    "key": "ღ",
+    "value": "gh"
+  },
+  {
+    "key": "ყ",
+    "value": "q"
+  },
+  {
+    "key": "შ",
+    "value": "sh"
+  },
+  {
+    "key": "ჩ",
+    "value": "ch"
+  },
+  {
+    "key": "ც",
+    "value": "ts"
+  },
+  {
+    "key": "ძ",
+    "value": "dz"
+  },
+  {
+    "key": "წ",
+    "value": "ts"
+  },
+  {
+    "key": "ჭ",
+    "value": "ch"
+  },
+  {
+    "key": "ხ",
+    "value": "kh"
+  },
+  {
+    "key": "ჯ",
+    "value": "j"
+  },
+  {
+    "key": "ჰ",
+    "value": "h"
+  },
+  {
     "key": "ẞ",
     "value": "SS"
   },
