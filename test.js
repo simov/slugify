@@ -54,8 +54,8 @@ describe('slugify', function () {
 
   it('options.remove', function () {
     t.equal(slugify(
-      'foo *+~.() bar \'"!:@ baz',
-      {remove: /[$*_+~.()'"!\-:@]/g}
+      'foo $€£*+~.() bar \'"!:@ baz',
+      {remove: /[$€£*_+~.()'"!\-:@]/g}
     ), 'foo-bar-baz')
   })
 
@@ -269,7 +269,7 @@ describe('slugify', function () {
     })
   })
 
-  after(() => {
+  after(function () {
     build.sort()
   })
 })
