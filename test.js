@@ -269,7 +269,7 @@ describe('slugify', function () {
     })
   })
 
-  after(() => {
+  after(function () {
     build.sort()
   })
 })
