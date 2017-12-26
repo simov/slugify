@@ -1,4 +1,4 @@
-module slugify {
+declare module slugify {
   type ExtendArgs = {
     [key: string]: any;
   }
@@ -6,7 +6,7 @@ module slugify {
   export function extend (args: ExtendArgs): void;
 }
 
-function slugify(
+declare function slugify(
   string: string,
   options?:
     | {
