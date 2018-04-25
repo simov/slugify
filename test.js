@@ -215,6 +215,13 @@ describe('slugify', function () {
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is')
   })
 
+  it('works well to invalid values', function () {
+    t.equal(slugify(null), '')
+    t.equal(slugify(undefined), '')
+    t.equal(slugify(0), '')
+    t.equal(slugify(10), '10')
+  })
+
   describe('alphabets', function () {
     it('bulgarian', function () {
       var alphabet =
