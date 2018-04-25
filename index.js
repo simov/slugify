@@ -17,28 +17,19 @@
   /*eslint-enable */
 
   function replace (string, options) {
-    options = (typeof options === 'string')
-      ? {replacement: options}
-      : options || {}
-
-    string = string.split('')
+    var op = (typeof options === 'string') ? { replacement: options } : (options || {})
+    var s = string ? string.split('')
       .reduce(function (result, ch) {
-        if (charMap[ch]) {
-          ch = charMap[ch]
-        }
-        // allowed
-        ch = ch.replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]/g, '')
-        result += ch
-        return result
+        return result + (charMap[ch] || ch).replace(op.remove || /[^\w\s$*_+~.()'"!\-:@]/g, '')
       }, '')
       // trim leading/trailing spaces
       .replace(/^\s+|\s+$/g, '')
       // convert spaces
-      .replace(/[-\s]+/g, options.replacement || '-')
+      .replace(/[-\s]+/g, op.replacement || '-')
       // remove trailing separator
-      .replace('#{replacement}$', '')
+      .replace('#{replacement}$', '') : ''
 
-    return options.lower ? string.toLowerCase() : string
+    return op.lower ? s.toLowerCase() : s
   }
 
   replace.extend = function (customMap) {
