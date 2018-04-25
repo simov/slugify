@@ -18,7 +18,7 @@
 
   function replace (string, options) {
     var op = (typeof options === 'string') ? { replacement: options } : (options || {})
-    var s = string ? string.split('')
+    var s = (string && string.toString ? string.toString() : (string || '')).split('')
       .reduce(function (result, ch) {
         return result + (charMap[ch] || ch).replace(op.remove || /[^\w\s$*_+~.()'"!\-:@]/g, '')
       }, '')
@@ -27,7 +27,7 @@
       // convert spaces
       .replace(/[-\s]+/g, op.replacement || '-')
       // remove trailing separator
-      .replace('#{replacement}$', '') : ''
+      .replace('#{replacement}$', '')
 
     return op.lower ? s.toLowerCase() : s
   }
