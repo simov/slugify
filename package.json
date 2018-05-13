@@ -33,10 +33,10 @@
   ],
   "types": "index.d.ts",
   "scripts": {
-    "test": "npm run lint && npm run test-ci && echo Tests Passed",
-    "test-ci": "mocha",
-    "test-cov": "istanbul cover _mocha",
-    "lint": "eslint **/*.js && echo Lint Passed"
+    "lint": "eslint **/*.js && echo Lint Passed",
+    "test": "npm run lint && npm run test:ci && echo Tests Passed",
+    "test:ci": "mocha",
+    "test:cov": "istanbul cover _mocha"
   },
   "engines": {
     "node": ">=4.0.0"
