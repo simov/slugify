@@ -17,19 +17,19 @@
   /*eslint-enable */
 
   function replace (string, options) {
+    if (typeof string !== 'string') {
+      throw new Error('slugify: string argument expected')
+    }
+
     options = (typeof options === 'string')
       ? {replacement: options}
       : options || {}
 
-    string = string.split('')
+    var slug = string.split('')
       .reduce(function (result, ch) {
-        if (charMap[ch]) {
-          ch = charMap[ch]
-        }
+        return result + (charMap[ch] || ch)
         // allowed
-        ch = ch.replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]/g, '')
-        result += ch
-        return result
+        .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]/g, '')
       }, '')
       // trim leading/trailing spaces
       .replace(/^\s+|\s+$/g, '')
@@ -38,7 +38,7 @@
       // remove trailing separator
       .replace('#{replacement}$', '')
 
-    return options.lower ? string.toLowerCase() : string
+    return options.lower ? slug.toLowerCase() : slug
   }
 
   replace.extend = function (customMap) {

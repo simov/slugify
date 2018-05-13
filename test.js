@@ -10,6 +10,15 @@ describe('slugify', function () {
     slugify = require('./')
   })
 
+  it('throws', function () {
+    try {
+      slugify(undefined)
+    }
+    catch (err) {
+      t.equal(err.message, 'slugify: string argument expected')
+    }
+  })
+
   it('duplicates characters are not allowed', function () {
     var result = build.duplicates()
     t.equal(
