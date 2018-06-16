@@ -27,7 +27,7 @@ slugify('some string', {
 })
 ```
 
-For example to remove `*+~.()'"!:@` from the result slug, you can use `slugify('..', {remove: /[$*_+~.()'"!\-:@]/g})`
+For example to remove `*+~.()'"!:@` from the result slug, you can use `slugify('..', {remove: /[*+~.()'"!:@]/g})`
 
 ## Extend
 
