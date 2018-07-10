@@ -10,6 +10,15 @@ describe('slugify', function () {
     slugify = require('./')
   })
 
+  it('throws', function () {
+    try {
+      slugify(undefined)
+    }
+    catch (err) {
+      t.equal(err.message, 'slugify: string argument expected')
+    }
+  })
+
   it('duplicates characters are not allowed', function () {
     var result = build.duplicates()
     t.equal(
@@ -256,9 +265,20 @@ describe('slugify', function () {
         'A-a-B-b-C-c-C-c-D-d-E-e-F-f-G-g-G-g-H-h-I-i-I-i-J-j-K-k-L-l-M-m-N-n-O-o-O-o-P-p-R-r-S-s-S-s-T-t-U-u-U-u-V-v-Y-y-Z-z'
       )
     })
+
+    it('georgian', function () {
+      var alphabet =
+        'ა, ბ, გ, დ, ე, ვ, ზ, თ, ი, კ, ლ, ' +
+        'მ, ნ, ო, პ, ჟ, რ, ს, ტ, უ, ფ, ქ, ' +
+        'ღ, ყ, შ, ჩ, ც, ძ, წ, ჭ, ხ, ჯ, ჰ'
+
+      t.equal(slugify(alphabet),
+        'a-b-g-d-e-v-z-t-i-k-l-m-n-o-p-zh-r-s-t-u-f-k-gh-q-sh-ch-ts-dz-ts-ch-kh-j-h'
+      )
+    })
   })
 
-  after(() => {
+  after(function () {
     build.sort()
   })
 })

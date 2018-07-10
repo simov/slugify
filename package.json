@@ -1,6 +1,6 @@
 {
   "name": "slugify",
-  "version": "1.2.6",
+  "version": "1.3.0",
   "description": "Slugifies a String",
   "keywords": [
     "slugify",
@@ -16,13 +16,15 @@
     "url": "https://github.com/simov/slugify.git"
   },
   "devDependencies": {
-    "coveralls": "^2.11.15",
-    "eslint": "^3.12.2",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
+    "coveralls": "^3.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
     "istanbul": "^0.4.5",
-    "mocha": "^3.2.0"
+    "mocha": "^5.1.1"
   },
   "main": "./index.js",
   "files": [
@@ -33,10 +35,10 @@
   ],
   "types": "index.d.ts",
   "scripts": {
-    "test": "npm run lint && npm run test-ci && echo Tests Passed",
-    "test-ci": "mocha",
-    "test-cov": "istanbul cover _mocha",
-    "lint": "eslint **/*.js && echo Lint Passed"
+    "lint": "eslint index.js test.js && echo Lint Passed",
+    "test": "npm run lint && npm run test:ci && echo Tests Passed",
+    "test:ci": "mocha",
+    "test:cov": "istanbul cover _mocha"
   },
   "engines": {
     "node": ">=4.0.0"

@@ -1,4 +1,6 @@
-.idea
-npm-debug.log
+build/
 coverage/
 node_modules/
+.idea
+npm-debug.log
+package-lock.json
