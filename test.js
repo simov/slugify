@@ -41,6 +41,10 @@ describe('slugify', function () {
     t.equal(slugify(' foo bar baz '), 'foo-bar-baz')
   })
 
+  it('remove leading/trailing separators if any', function () {
+    t.equal(slugify('--foo bar baz--'), 'foo-bar-baz')
+  })
+
   it('remove not allowed chars', function () {
     t.equal(slugify('foo, bar baz'), 'foo-bar-baz')
     t.equal(slugify('foo- bar baz'), 'foo-bar-baz')
