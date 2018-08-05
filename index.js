@@ -32,7 +32,7 @@
           .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]/g, '')
       }, '')
       // trim leading/trailing spaces
-      .replace(/^\s+|\s+$/g, '')
+      .trim()
       // convert spaces
       .replace(/[-\s]+/g, options.replacement || '-')
       // remove trailing separator
