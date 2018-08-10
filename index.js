@@ -35,8 +35,6 @@
       .trim()
       // convert spaces
       .replace(/[-\s]+/g, options.replacement || '-')
-      // remove trailing separator
-      .replace('#{replacement}$', '')
 
     return options.lower ? slug.toLowerCase() : slug
   }
