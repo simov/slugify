@@ -1908,6 +1908,10 @@
     "value": "russian ruble"
   },
   {
+    "key": "₿",
+    "value": "bitcoin"
+  },
+  {
     "key": "℠",
     "value": "sm"
   },
