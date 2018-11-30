@@ -4,6 +4,10 @@
     "value": "dollar"
   },
   {
+    "key": "%",
+    "value": "percent"
+  },
+  {
     "key": "&",
     "value": "and"
   },
