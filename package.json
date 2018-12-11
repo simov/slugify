@@ -35,7 +35,7 @@
   ],
   "types": "index.d.ts",
   "scripts": {
-    "lint": "eslint index.js test.js && echo Lint Passed",
+    "lint": "eslint index.js test.js build.js && echo Lint Passed",
     "test": "npm run lint && npm run test:ci && echo Tests Passed",
     "test:ci": "mocha",
     "test:cov": "istanbul cover _mocha"
