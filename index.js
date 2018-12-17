@@ -22,7 +22,7 @@
     }
 
     options = (typeof options === 'string')
-      ? {replacement: options}
+      ? { replacement: options }
       : options || {}
 
     var slug = string.split('')
