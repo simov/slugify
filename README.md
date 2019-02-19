@@ -3,6 +3,15 @@
 
 [![npm-version]][npm] [![travis-ci]][travis] [![coveralls-status]][coveralls]
 
+- Vanilla ES5 JavaScript
+- No dependencies
+- Coerces foreign symbols to their english equivalent (check out the `charMap` in [index.js][index] for more details)
+- Works in the browser (window.slugify), AMD/CommonJS-flavored module loaders and command line
+
+## Usage
+
+### Node
+
 ```js
 var slugify = require('slugify')
 
@@ -12,10 +21,24 @@ slugify('some string') // some-string
 slugify('some string', '_')  // some_string
 ```
 
-- Vanilla ES5 JavaScript
-- No dependencies
-- Coerces foreign symbols to their english equivalent (check out the `charMap` in [index.js][index] for more details)
-- Works in the browser (window.slugify) and AMD/CommonJS-flavored module loaders
+### Browser
+
+```html
+<script src="https://unpkg.com/slugify@1.3.4/index.js"></script>
+<script>
+  var string = 'some string'
+  console.log(slugify(string));
+</script>
+```
+
+### CLI
+
+```bash
+echo 'some string' | slugify
+> some-string
+slugify -s 'some string'
+> some-string
+```
 
 ## Options
 
@@ -28,6 +51,15 @@ slugify('some string', {
 ```
 
 For example, to remove `*+~.()'"!:@` from the result slug, you can use `slugify('..', {remove: /[*+~.()'"!:@]/g})`.
+
+Options are also available in CLI mode:
+
+```bash
+slugify -s 'Some String' -l
+> some-string
+slugify -s 'some string' -r '_'
+> some_string
+```
 
 ## Extend
 

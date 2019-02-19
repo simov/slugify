@@ -1,0 +1,129 @@
+#!/usr/bin/env node
+
+var slugify = require('../')
+
+function help () {
+  console.log('Usage: slugify [options] -s \'string\'\n' +
+'       echo \'string\' | slugify [options]\n' +
+'\n' +
+'Options:\n' +
+'  -s, --string            the string to slugify\n' +
+'  -r, --replacement char  defines words separator\n' +
+'  -R, --remove regex      remove characters\n' +
+'  -l, --lower             result in lower case\n' +
+'  -h, --help              display this help and exit')
+}
+
+function main (argv, callback) {
+  var arg
+  var string
+  var options = []
+
+  function getArg () {
+    var arg = argv.shift()
+
+    if (arg.indexOf('--') === 0) {
+      // e.g. --opt
+      arg = arg.split('=')
+      if (arg.length > 1) {
+        // e.g. --opt=val
+        argv.unshift(arg.slice(1).join('='))
+      }
+      arg = arg[0]
+    }
+    else if (arg[0] === '-') {
+      if (arg.length > 2) {
+        // e.g. -abc
+        argv = arg.substring(1).split('').map(function (ch) {
+          return '-' + ch
+        }).concat(argv)
+        arg = argv.shift()
+      }
+    }
+
+    return arg
+  }
+
+  // Remove `node` and `slugify` CLI arguments
+  argv.shift()
+  argv.shift()
+
+  while (argv.length) {
+    arg = getArg()
+    switch (arg) {
+      case '-s':
+      case '--string':
+        string = argv.shift()
+        break
+      case '-h':
+      case '--help':
+        return help()
+      case '-r':
+      case '--replacement':
+        options['replacement'] = argv.shift()
+        break
+      case '-R':
+      case '--remove':
+        options['remove'] = argv.shift()
+        break
+      case '-l':
+      case '--lower':
+        options['lower'] = true
+        break
+      default:
+        console.log(arg)
+        console.log('usage: slugify -s \'Hola món\'')
+        console.log('slugify -h for more options.')
+        break
+    }
+  }
+
+  if (string) {
+    process.stdout.write(slugify(string, options) + '\n')
+    return callback()
+  }
+  else { // if -s option is not given, process stdin
+    var stdin = process.stdin
+    var buff = ''
+
+    stdin.setEncoding('utf8')
+
+    stdin.on('data', function (data) {
+      buff += data
+    })
+
+    stdin.on('error', function (err) {
+      return callback(err)
+    })
+
+    stdin.on('end', function () {
+      process.stdout.write(slugify(buff, options) + '\n')
+      return callback()
+    })
+
+    try {
+      stdin.resume()
+    }
+    catch (err) {
+      callback(err)
+    }
+  }
+
+}
+
+/**
+ * Expose / Entry Point
+ */
+
+if (!module.parent) {
+  process.title = 'slugify'
+  main(process.argv.slice(), function (err, code) {
+    if (err) {
+      throw err
+    }
+    return process.exit(code || 0)
+  })
+}
+else {
+  module.exports = main
+}
