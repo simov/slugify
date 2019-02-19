@@ -27,11 +27,16 @@
     "mocha": "^5.1.1"
   },
   "main": "./index.js",
+  "preferGlobal": true,
+  "bin": {
+    "mycliapp": "./bin/slugify"
+  },
   "files": [
     "LICENSE",
     "README.md",
     "index.d.ts",
-    "index.js"
+    "index.js",
+    "bin/"
   ],
   "types": "index.d.ts",
   "scripts": {
