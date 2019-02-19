@@ -29,7 +29,7 @@
   "main": "./index.js",
   "preferGlobal": true,
   "bin": {
-    "mycliapp": "./bin/slugify"
+    "slugify": "./bin/slugify"
   },
   "files": [
     "LICENSE",
