@@ -1,15 +1,8 @@
 /* eslint-disable node/no-deprecated-api */
 var t = require('assert')
+var slugify = require('./')
 
 describe('slugify', function () {
-  var build = require('./build')
-  var slugify
-
-  before(function () {
-    build.replace()
-    slugify = require('./')
-  })
-
   it('throws', function () {
     try {
       slugify(undefined)
@@ -20,11 +13,27 @@ describe('slugify', function () {
   })
 
   it('duplicates characters are not allowed', function () {
-    var result = build.duplicates()
+    var charmap = require('./charmap.json')
+
+    function getDuplicates (charmap) {
+      var cache = {}
+      var duplicates = []
+      charmap.forEach(function (pair) {
+        if (!cache[pair.key]) {
+          cache[pair.key] = pair
+        }
+        else {
+          duplicates.push(pair)
+        }
+      })
+      return duplicates
+    }
+
+    var result = getDuplicates(charmap)
     t.equal(
-      result.duplicates.length,
+      result.length,
       0,
-      'duplicates: ' + result.duplicates
+      'duplicates: ' + result
         .map(function (pair) {
           return pair.key
         })
@@ -276,9 +285,5 @@ describe('slugify', function () {
         'a-b-g-d-e-v-z-t-i-k-l-m-n-o-p-zh-r-s-t-u-f-k-gh-q-sh-ch-ts-dz-ts-ch-kh-j-h'
       )
     })
-  })
-
-  after(function () {
-    build.sort()
   })
 })

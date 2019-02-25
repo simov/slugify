@@ -35,10 +35,11 @@
   ],
   "types": "index.d.ts",
   "scripts": {
+    "build": "node build.js && echo Build completed",
     "lint": "eslint index.js test.js build.js && echo Lint Passed",
     "test": "npm run lint && npm run test:ci && echo Tests Passed",
-    "test:ci": "mocha",
-    "test:cov": "istanbul cover _mocha"
+    "test:ci": "npm run build && mocha",
+    "test:cov": "npm run build && istanbul cover _mocha"
   },
   "engines": {
     "node": ">=4.0.0"
