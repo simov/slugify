@@ -608,6 +608,26 @@
     "value": "u"
   },
   {
+    "key": "Ŵ",
+    "value": "W"
+  },
+  {
+    "key": "ŵ",
+    "value": "w"
+  },
+  {
+    "key": "Ŷ",
+    "value": "Y"
+  },
+  {
+    "key": "ŷ",
+    "value": "y"
+  },
+  {
+    "key": "Ÿ",
+    "value": "Y"
+  },
+  {
     "key": "Ź",
     "value": "Z"
   },
@@ -1442,6 +1462,30 @@
   {
     "key": "ჰ",
     "value": "h"
+  },
+  {
+    "key": "Ẁ",
+    "value": "W"
+  },
+  {
+    "key": "ẁ",
+    "value": "w"
+  },
+  {
+    "key": "Ẃ",
+    "value": "W"
+  },
+  {
+    "key": "ẃ",
+    "value": "w"
+  },
+  {
+    "key": "Ẅ",
+    "value": "W"
+  },
+  {
+    "key": "ẅ",
+    "value": "w"
   },
   {
     "key": "ẞ",
