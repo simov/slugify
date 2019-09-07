@@ -23,6 +23,7 @@ slugify('some string', '_')  // some_string
 slugify('some string', {
   replacement: '-',    // replace spaces with replacement
   remove: null,        // regex to remove characters
+  remover: '',         // replace remove regex match with remover
   lower: true          // result in lower case
 })
 ```
