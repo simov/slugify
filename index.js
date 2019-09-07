@@ -29,7 +29,7 @@
       .reduce(function (result, ch) {
         return result + (charMap[ch] || ch)
           // allowed
-          .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]/g, '')
+          .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]/g, options.remover || '')
       }, '')
       // trim leading/trailing spaces
       .trim()
