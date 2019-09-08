@@ -14,7 +14,7 @@ slugify('some string', '_')  // some_string
 
 - Vanilla ES5 JavaScript
 - No dependencies
-- Coerces foreign symbols to their english equivalent (check out the `charMap` in [index.js][index] for more details)
+- Coerces foreign symbols to their English equivalent (check out the `charMap` in [index.js][index] for more details)
 - Works in the browser (window.slugify) and AMD/CommonJS-flavored module loaders
 
 ## Options
@@ -23,7 +23,7 @@ slugify('some string', '_')  // some_string
 slugify('some string', {
   replacement: '-',    // replace spaces with replacement
   remove: null,        // regex to remove characters
-  lower: true          // result in lower case
+  lower: true,         // result in lower case
 })
 ```
 
