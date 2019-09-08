@@ -1,6 +1,7 @@
 {
-  "bg": {
-    "locale": "Bulgarian",
-    "ѝ": "u"
+  "vi": {
+    "locale": "Vietnamese",
+    "Đ": "D",
+    "đ": "d"
   }
 }

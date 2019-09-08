@@ -3,9 +3,9 @@ var t = require('assert')
 var slugify = require('../')
 
 
-describe('slugify', function () {
+describe('slugify', () => {
 
-  it('throws', function () {
+  it('throws', () => {
     try {
       slugify(undefined)
     }
@@ -14,24 +14,24 @@ describe('slugify', function () {
     }
   })
 
-  it('replace whitespaces with replacement', function () {
+  it('replace whitespaces with replacement', () => {
     t.equal(slugify('foo bar baz'), 'foo-bar-baz')
     t.equal(slugify('foo bar baz', '_'), 'foo_bar_baz')
   })
 
-  it('remove trailing space if any', function () {
+  it('remove trailing space if any', () => {
     t.equal(slugify(' foo bar baz '), 'foo-bar-baz')
   })
 
-  it('remove not allowed chars', function () {
+  it('remove not allowed chars', () => {
     t.equal(slugify('foo, bar baz'), 'foo-bar-baz')
     t.equal(slugify('foo- bar baz'), 'foo-bar-baz')
     t.equal(slugify('foo] bar baz'), 'foo-bar-baz')
   })
 
-  it('leave allowed chars', function () {
+  it('leave allowed chars', () => {
     var allowed = ['*', '+', '~', '.', '(', ')', '\'', '"', '!', ':', '@']
-    allowed.forEach(function (symbol) {
+    allowed.forEach((symbol) => {
       t.equal(
         slugify('foo ' + symbol + ' bar baz'),
         'foo-' + symbol + '-bar-baz'
@@ -39,22 +39,22 @@ describe('slugify', function () {
     })
   })
 
-  it('options.replacement', function () {
+  it('options.replacement', () => {
     t.equal(slugify('foo bar baz', { replacement: '_' }), 'foo_bar_baz')
   })
 
-  it('options.remove', function () {
+  it('options.remove', () => {
     t.equal(slugify(
       'foo *+~.() bar \'"!:@ baz',
       { remove: /[$*_+~.()'"!\-:@]/g }
     ), 'foo-bar-baz')
   })
 
-  it('options.lower', function () {
+  it('options.lower', () => {
     t.equal(slugify('Foo bAr baZ', { lower: true }), 'foo-bar-baz')
   })
 
-  it('replace latin chars', function () {
+  it('replace latin chars', () => {
     var charMap = {
       'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A', 'Æ': 'AE',
       'Ç': 'C', 'È': 'E', 'É': 'E', 'Ê': 'E', 'Ë': 'E', 'Ì': 'I', 'Í': 'I',
@@ -72,7 +72,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace greek chars', function () {
+  it('replace greek chars', () => {
     var charMap = {
       'α': 'a', 'β': 'b', 'γ': 'g', 'δ': 'd', 'ε': 'e', 'ζ': 'z', 'η': 'h', 'θ': '8',
       'ι': 'i', 'κ': 'k', 'λ': 'l', 'μ': 'm', 'ν': 'n', 'ξ': '3', 'ο': 'o', 'π': 'p',
@@ -90,7 +90,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace turkish chars', function () {
+  it('replace turkish chars', () => {
     var charMap = {
       'ş': 's', 'Ş': 'S', 'ı': 'i', 'İ': 'I', 'ç': 'c', 'Ç': 'C', 'ü': 'u', 'Ü': 'U',
       'ö': 'o', 'Ö': 'O', 'ğ': 'g', 'Ğ': 'G'
@@ -100,7 +100,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace cyrillic chars', function () {
+  it('replace cyrillic chars', () => {
     var charMap = {
       'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh',
       'з': 'z', 'и': 'i', 'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
@@ -123,7 +123,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace czech chars', function () {
+  it('replace czech chars', () => {
     var charMap = {
       'č': 'c', 'ď': 'd', 'ě': 'e', 'ň': 'n', 'ř': 'r', 'š': 's', 'ť': 't', 'ů': 'u',
       'ž': 'z', 'Č': 'C', 'Ď': 'D', 'Ě': 'E', 'Ň': 'N', 'Ř': 'R', 'Š': 'S', 'Ť': 'T',
@@ -134,7 +134,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace polish chars', function () {
+  it('replace polish chars', () => {
     var charMap = {
       'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l', 'ń': 'n', 'ó': 'o', 'ś': 's', 'ź': 'z',
       'ż': 'z', 'Ą': 'A', 'Ć': 'C', 'Ę': 'e', 'Ł': 'L', 'Ń': 'N', 'Ś': 'S',
@@ -145,7 +145,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace latvian chars', function () {
+  it('replace latvian chars', () => {
     var charMap = {
       'ā': 'a', 'č': 'c', 'ē': 'e', 'ģ': 'g', 'ī': 'i', 'ķ': 'k', 'ļ': 'l', 'ņ': 'n',
       'š': 's', 'ū': 'u', 'ž': 'z', 'Ā': 'A', 'Č': 'C', 'Ē': 'E', 'Ģ': 'G', 'Ī': 'i',
@@ -156,7 +156,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace serbian chars', function () {
+  it('replace serbian chars', () => {
     var charMap = {
       'đ': 'dj', 'ǌ': 'nj', 'ǉ': 'lj', 'Đ': 'DJ', 'ǋ': 'NJ', 'ǈ': 'LJ', 'ђ': 'dj', 'ј': 'j',
       'љ': 'lj', 'њ': 'nj', 'ћ': 'c', 'џ': 'dz', 'Ђ': 'DJ', 'Ј': 'J', 'Љ': 'LJ', 'Њ': 'NJ',
@@ -167,7 +167,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace currencies', function () {
+  it('replace currencies', () => {
     var charMap = {
       '€': 'euro', '₢': 'cruzeiro', '₣': 'french franc', '£': 'pound',
       '₤': 'lira', '₥': 'mill', '₦': 'naira', '₧': 'peseta', '₨': 'rupee',
@@ -183,7 +183,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace symbols', function () {
+  it('replace symbols', () => {
     var charMap = {
       '©': '(c)', 'œ': 'oe', 'Œ': 'OE', '∑': 'sum', '®': '(r)', '†': '+',
       '“': '"', '”': '"', '‘': "'", '’': "'", '∂': 'd', 'ƒ': 'f', '™': 'tm',
@@ -196,7 +196,7 @@ describe('slugify', function () {
     }
   })
 
-  it('replace custom characters', function () {
+  it('replace custom characters', () => {
     slugify.extend({ '☢': 'radioactive' })
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is-radioactive')
 
