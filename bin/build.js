@@ -14,6 +14,16 @@ var sort = (obj) =>
     .sort((a, b) => a > b ? 1 : a < b ? -1 : 0)
     .reduce((all, key) => (all[key] = obj[key], all), {})
 
+var clean = (locales) =>
+  Object.keys(locales)
+    .reduce((all, locale) => (
+      all[locale] =
+        Object.keys(locales[locale])
+          .filter((key) => key !== 'locale')
+          .reduce((all, key) => (all[key] = locales[locale][key], all), {}),
+      all
+    ), {})
+
 
 var build = () => {
   // update charmap - remove duplicates and sort
@@ -32,7 +42,7 @@ var build = () => {
       )
       .replace(
         /var locales = JSON\.parse\(.*\)/,
-        `var locales = JSON.parse('${JSON.stringify(locales)}')`
+        `var locales = JSON.parse('${JSON.stringify(clean(locales))}')`
       )
   fs.writeFileSync(path.resolve(__dirname, '../slugify.js'), source, 'utf8')
 }
