@@ -14,7 +14,7 @@ slugify('some string', '_')  // some_string
 
 - Vanilla ES5 JavaScript
 - No dependencies
-- Coerces foreign symbols to their English equivalent (check out the `charMap` in [index.js][index] for more details)
+- Coerces foreign symbols to their English equivalent (check out the [`charMap`](https://github.com/simov/slugify/blob/master/config/charmap.json) for more details)
 - Works in the browser (window.slugify) and AMD/CommonJS-flavored module loaders
 
 ## Options
