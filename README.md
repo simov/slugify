@@ -14,7 +14,7 @@ slugify('some string', '_')  // some_string
 
 - Vanilla ES5 JavaScript
 - No dependencies
-- Coerces foreign symbols to their English equivalent (check out the `charMap` in [index.js][index] for more details)
+- Coerces foreign symbols to their English equivalent (check out the [charMap][charmap] for more details)
 - Works in the browser (window.slugify) and AMD/CommonJS-flavored module loaders
 
 ## Options
@@ -31,7 +31,7 @@ For example, to remove `*+~.()'"!:@` from the result slug, you can use `slugify(
 
 ## Extend
 
-Out of the box `slugify` comes with support for a handful of Unicode symbols. For example the `☢` (radioactive) symbol is not defined in the `charMap` object in [index.js][index] and therefore it will be stripped by default:
+Out of the box `slugify` comes with support for a handful of Unicode symbols. For example the `☢` (radioactive) symbol is not defined in the [`charMap`][charmap] and therefore it will be stripped by default:
 
 ```js
 slugify('unicode ♥ is ☢') // unicode-love-is
@@ -77,3 +77,4 @@ var slugify = require('slugify')
   [slug]: https://www.npmjs.com/package/slug
   [unicode]: https://www.npmjs.com/package/unicode
   [index]: https://github.com/simov/slugify/blob/master/index.js
+  [charmap]: https://github.com/simov/slugify/blob/master/config/charmap.json
