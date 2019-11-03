@@ -1,4 +1,3 @@
-
 var t = require('assert')
 var slugify = require('../')
 
@@ -8,8 +7,7 @@ describe('slugify', () => {
   it('throws', () => {
     try {
       slugify(undefined)
-    }
-    catch (err) {
+    } catch (err) {
       t.equal(err.message, 'slugify: string argument expected')
     }
   })
@@ -40,18 +38,18 @@ describe('slugify', () => {
   })
 
   it('options.replacement', () => {
-    t.equal(slugify('foo bar baz', { replacement: '_' }), 'foo_bar_baz')
+    t.equal(slugify('foo bar baz', {replacement: '_'}), 'foo_bar_baz')
   })
 
   it('options.remove', () => {
     t.equal(slugify(
       'foo *+~.() bar \'"!:@ baz',
-      { remove: /[$*_+~.()'"!\-:@]/g }
+      {remove: /[$*_+~.()'"!\-:@]/g}
     ), 'foo-bar-baz')
   })
 
   it('options.lower', () => {
-    t.equal(slugify('Foo bAr baZ', { lower: true }), 'foo-bar-baz')
+    t.equal(slugify('Foo bAr baZ', {lower: true}), 'foo-bar-baz')
   })
 
   it('replace latin chars', () => {
@@ -123,6 +121,20 @@ describe('slugify', () => {
     }
   })
 
+  it('replace kazakh cyrillic chars', () => {
+    var charMap = {
+      'Ә': 'AE', 'ә': 'ae', 'Ғ': 'GH', 'ғ': 'gh', 'Қ': 'KH', 'қ': 'kh', 'Ң': 'NG', 'ң': 'ng',
+      'Ү': 'UE', 'ү': 'ue', 'Ұ': 'U', 'ұ': 'u', 'Һ': 'H', 'һ': 'h', 'Ө': 'OE', 'ө': 'oe'
+    }
+    for (var ch in charMap) {
+      var expected = 'foo-' + charMap[ch] + '-bar-baz'
+      if (!charMap[ch]) {
+        expected = 'foo-bar-baz'
+      }
+      t.equal(slugify('foo ' + ch + ' bar baz'), expected)
+    }
+  })
+
   it('replace czech chars', () => {
     var charMap = {
       'č': 'c', 'ď': 'd', 'ě': 'e', 'ň': 'n', 'ř': 'r', 'š': 's', 'ť': 't', 'ů': 'u',
@@ -171,7 +183,7 @@ describe('slugify', () => {
     var charMap = {
       '€': 'euro', '₢': 'cruzeiro', '₣': 'french franc', '£': 'pound',
       '₤': 'lira', '₥': 'mill', '₦': 'naira', '₧': 'peseta', '₨': 'rupee',
-      '₩': 'won', '₪': 'new shequel', '₫': 'dong', '₭': 'kip', '₮': 'tugrik',
+      '₩': 'won', '₪': 'new shequel', '₫': 'dong', '₭': 'kip', '₮': 'tugrik', '₸': 'kazakhstani tenge',
       '₯': 'drachma', '₰': 'penny', '₱': 'peso', '₲': 'guarani', '₳': 'austral',
       '₴': 'hryvnia', '₵': 'cedi', '¢': 'cent', '¥': 'yen', '元': 'yuan',
       '円': 'yen', '﷼': 'rial', '₠': 'ecu', '¤': 'currency', '฿': 'baht',
@@ -197,7 +209,7 @@ describe('slugify', () => {
   })
 
   it('replace custom characters', () => {
-    slugify.extend({ '☢': 'radioactive' })
+    slugify.extend({'☢': 'radioactive'})
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is-radioactive')
 
     delete require.cache[require.resolve('../')]

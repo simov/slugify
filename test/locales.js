@@ -1,4 +1,3 @@
-
 var t = require('assert')
 var slugify = require('../')
 
@@ -57,6 +56,13 @@ describe('locale', () => {
     t.equal(slugify(alphabet),
       'a-b-g-d-e-v-z-t-i-k-l-m-n-o-p-zh-r-s-t-u-f-k-gh-q-sh-ch-ts-dz-ts-ch-kh-j-h'
     )
+  })
+
+  it('kk - kazakh cyrillic', () => {
+    var alphabet =
+      'Ә ә, Ғ ғ, Қ қ, Ң ң, Ү ү, Ұ ұ, Һ һ, Ө ө'
+
+    t.equal(slugify(alphabet), 'AE-ae-GH-gh-KH-kh-NG-ng-UE-ue-U-u-H-h-OE-oe')
   })
 
   it('vi - vietnamese', () => {
