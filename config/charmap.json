@@ -509,6 +509,7 @@
   "₵": "cedi",
   "₸": "kazakhstani tenge",
   "₹": "indian rupee",
+  "₺": "turkish lira",
   "₽": "russian ruble",
   "₿": "bitcoin",
   "℠": "sm",
@@ -520,6 +521,5 @@
   "♥": "love",
   "元": "yuan",
   "円": "yen",
-  "﷼": "rial",
-  "₺": "turkish lira"
+  "﷼": "rial"
 }
