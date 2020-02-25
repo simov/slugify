@@ -52,6 +52,17 @@ describe('slugify', () => {
     t.equal(slugify('Foo bAr baZ', {lower: true}), 'foo-bar-baz')
   })
 
+  it('options.strict', () => {
+    t.equal(slugify('foo_bar. -baz!', {strict: true}), 'foobar-baz')
+  })
+
+  it('options.replacement and options.strict', () => {
+    t.equal(slugify('foo_bar-baz!', {
+      replacement: '_',
+      strict: true
+    }), 'foo_barbaz')
+  })
+
   it('replace latin chars', () => {
     var charMap = {
       'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A', 'Æ': 'AE',

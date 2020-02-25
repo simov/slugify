@@ -21,9 +21,10 @@ slugify('some string', '_')  // some_string
 
 ```js
 slugify('some string', {
-  replacement: '-',    // replace spaces with replacement
-  remove: null,        // regex to remove characters
-  lower: true,         // result in lower case
+  replacement: '-',  // set replacement character, defaults to `-`
+  remove: undefined, // remove characters that match regex, defaults to `undefined`
+  lower: false,      // convert to lower case, defaults to `false`
+  strict: false,     // strip special characters except replacement, defaults to `false`
 })
 ```
 

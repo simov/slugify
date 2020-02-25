@@ -26,6 +26,8 @@
 
     var locale = locales[options.locale] || {}
 
+    var replacement = options.replacement || '-'
+
     var slug = string.split('')
       .reduce(function (result, ch) {
         return result + (locale[ch] || charMap[ch] || ch)
@@ -34,10 +36,19 @@
       }, '')
       // trim leading/trailing spaces
       .trim()
-      // convert spaces
-      .replace(/[-\s]+/g, options.replacement || '-')
+      // convert spaces to replacement characters
+      .replace(new RegExp('[\\s' + replacement + ']+', 'g'), replacement)
 
-    return options.lower ? slug.toLowerCase() : slug
+    if (options.lower) {
+      slug = slug.toLowerCase()
+    }
+
+    if (options.strict) {
+      slug = slug
+        .replace(new RegExp('[^a-zA-Z0-9' + replacement + ']', 'g'), '')
+    }
+
+    return slug
   }
 
   replace.extend = function (customMap) {
