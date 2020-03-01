@@ -1,6 +1,6 @@
 {
   "name": "slugify",
-  "version": "1.3.6",
+  "version": "1.4.0",
   "description": "Slugifies a String",
   "keywords": [
     "slugify",
