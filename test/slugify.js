@@ -25,6 +25,7 @@ describe('slugify', () => {
     t.equal(slugify('foo, bar baz'), 'foo-bar-baz')
     t.equal(slugify('foo- bar baz'), 'foo-bar-baz')
     t.equal(slugify('foo] bar baz'), 'foo-bar-baz')
+    t.equal(slugify('foo  bar--baz'), 'foo-bar-baz')
   })
 
   it('leave allowed chars', () => {
