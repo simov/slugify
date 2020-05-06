@@ -54,11 +54,11 @@ describe('slugify', () => {
   })
 
   it('options.strict', () => {
-    t.equal(slugify('foo_bar. -baz!', {strict: true}), 'foobar-baz')
+    t.equal(slugify('foo_bar. -@-baz!', {strict: true}), 'foobar-baz')
   })
 
   it('options.replacement and options.strict', () => {
-    t.equal(slugify('foo_bar-baz!', {
+    t.equal(slugify('foo_@_bar-baz!', {
       replacement: '_',
       strict: true
     }), 'foo_barbaz')

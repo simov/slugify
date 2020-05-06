@@ -37,9 +37,6 @@
       .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '')
       // trim leading/trailing spaces
       .trim()
-      // convert spaces to replacement character
-      // also remove duplicates of the replacement character
-      .replace(new RegExp('[\\s' + replacement + ']+', 'g'), replacement)
 
     if (options.lower) {
       slug = slug.toLowerCase()
@@ -50,6 +47,11 @@
       slug = slug
         .replace(new RegExp('[^a-zA-Z0-9' + replacement + ']', 'g'), '')
     }
+
+    slug = slug
+      // convert spaces to replacement character
+      // also remove duplicates of the replacement character
+      .replace(new RegExp('[\\s' + replacement + ']+', 'g'), replacement)
 
     return slug
   }
