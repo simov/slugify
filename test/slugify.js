@@ -17,6 +17,10 @@ describe('slugify', () => {
     t.equal(slugify('foo bar baz', '_'), 'foo_bar_baz')
   })
 
+  it('remove duplicates of the replacement character', () => {
+    t.equal(slugify('foo , bar'), 'foo-bar')
+  })
+
   it('remove trailing space if any', () => {
     t.equal(slugify(' foo bar baz '), 'foo-bar-baz')
   })
@@ -55,6 +59,10 @@ describe('slugify', () => {
 
   it('options.strict', () => {
     t.equal(slugify('foo_bar. -baz!', {strict: true}), 'foobar-baz')
+  })
+
+  it('options.strict - remove duplicates of the replacement character', () => {
+    t.equal(slugify('foo @ bar', {strict: true}), 'foo-bar')
   })
 
   it('options.replacement and options.strict', () => {
