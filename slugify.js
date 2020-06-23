@@ -46,8 +46,6 @@
       // remove anything besides letters, numbers, and the replacement char
       slug = slug
         .replace(new RegExp('[^a-zA-Z0-9' + replacement + ']', 'g'), '')
-        // remove duplicates of the replacement character
-        .replace(new RegExp('[\\s' + replacement + ']+', 'g'), replacement)
     }
 
     slug = slug
