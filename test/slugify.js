@@ -207,7 +207,7 @@ describe('slugify', () => {
       '₯': 'drachma', '₰': 'penny', '₱': 'peso', '₲': 'guarani', '₳': 'austral',
       '₴': 'hryvnia', '₵': 'cedi', '¢': 'cent', '¥': 'yen', '元': 'yuan',
       '円': 'yen', '﷼': 'rial', '₠': 'ecu', '¤': 'currency', '฿': 'baht',
-      '$': 'dollar', '₽': 'russian ruble', '₿': 'bitcoin'
+      '$': 'dollar', '₽': 'russian ruble', '₿': 'bitcoin', "₺": "turkish lira"
     }
     for (var ch in charMap) {
       charMap[ch] = charMap[ch].replace(' ', '-')
