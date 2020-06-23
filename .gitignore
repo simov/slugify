@@ -1,6 +1,5 @@
-build/
 coverage/
 node_modules/
-.idea
+.nyc_output/
 npm-debug.log
 package-lock.json

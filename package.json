@@ -16,9 +16,9 @@
     "url": "https://github.com/simov/slugify.git"
   },
   "devDependencies": {
-    "coveralls": "^3.0.1",
-    "istanbul": "^0.4.5",
-    "mocha": "^5.2.0"
+    "coveralls": "^3.1.0",
+    "mocha": "^7.2.0",
+    "nyc": "^15.1.0"
   },
   "main": "./slugify.js",
   "files": [
@@ -30,8 +30,8 @@
   "types": "slugify.d.ts",
   "scripts": {
     "build": "node bin/build",
-    "test:ci": "mocha test/",
-    "test:cov": "istanbul cover _mocha",
+    "test:ci": "npx mocha --recursive",
+    "test:cov": "npx nyc --reporter=lcov --reporter=text-summary mocha -- --recursive",
     "test": "npm run build && npm run test:ci"
   },
   "engines": {
