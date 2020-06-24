@@ -28,7 +28,27 @@ slugify('some string', {
 })
 ```
 
-For example, to remove `*+~.()'"!:@` from the result slug, you can use `slugify('..', {remove: /[*+~.()'"!:@]/g})`.
+### Examples
+
+#### Remove special characters
+
+Remove `$*_+~.()'"!\-:@`.
+
+```js
+let slug = 'foo *+~.() bar \'"!:@ baz'
+slugify(slug, {remove: /[$*_+~.()'"!\-:@]/g})
+// foo-bar-baz
+```
+
+#### Strict mode
+
+Remove any character that doesn't match `[a-zA-Z0-9-]`, except the replacement.
+
+```js
+let slug = 'foo_bar. -baz!'
+slugify(slug, {strict: true})
+// foobar-baz
+```
 
 ## Extend
 
