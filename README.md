@@ -25,7 +25,7 @@ slugify('some string', {
   remove: undefined, // remove characters that match regex, defaults to `undefined`
   lower: false,      // convert to lower case, defaults to `false`
   strict: false,     // strip special characters except replacement, defaults to `false`
-  locale: 'vi',      // special locale for Vietnamese, fix issue when Đ/đ was repleaced as 'DJ'/'dj'
+  locale: 'vi',      // special locale for Vietnamese, fix issue when Đ/đ was replaced as 'DJ'/'dj'
 })
 ```
 
