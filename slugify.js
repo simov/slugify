@@ -26,7 +26,7 @@
 
     var locale = locales[options.locale] || {}
 
-    var replacement = options.replacement || '-'
+    var replacement = options.replacement === undefined ? '-' : options.replacement
 
     var slug = string.split('')
       // replace characters based on charMap

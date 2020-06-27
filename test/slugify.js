@@ -46,6 +46,10 @@ describe('slugify', () => {
     t.equal(slugify('foo bar baz', {replacement: '_'}), 'foo_bar_baz')
   })
 
+  it('options.replacement - empty string', () => {
+    t.equal(slugify('foo bar baz', {replacement: ''}), 'foobarbaz')
+  })
+
   it('options.remove', () => {
     t.equal(slugify(
       'foo *+~.() bar \'"!:@ baz',
