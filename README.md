@@ -25,10 +25,19 @@ slugify('some string', {
   remove: undefined, // remove characters that match regex, defaults to `undefined`
   lower: false,      // convert to lower case, defaults to `false`
   strict: false,     // strip special characters except replacement, defaults to `false`
+  locale: 'vi'       // language code of the locale to use
 })
 ```
 
+## Remove
+
 For example, to remove `*+~.()'"!:@` from the result slug, you can use `slugify('..', {remove: /[*+~.()'"!:@]/g})`.
+
+## Locales
+
+The main `charmap.json` file contains all known characters and their transliteration. All new characters should be added there first. In case you stumble upon a character already set in `charmap.json`, but not transliterated correctly according to your language, then you have to add those characters in `locales.json` to override the already existing transliteration in `charmap.json`, but for your locale only.
+
+You can get the correct language code of your language from [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
 
 ## Extend
 

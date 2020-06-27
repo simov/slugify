@@ -14,6 +14,7 @@ declare function slugify(
         remove?: RegExp;
         lower?: boolean;
         strict?: boolean;
+        locale?: string;
       }
     | string,
 
