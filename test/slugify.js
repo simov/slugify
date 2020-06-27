@@ -53,6 +53,13 @@ describe('slugify', () => {
     ), 'foo-bar-baz')
   })
 
+  it('options.remove regex without g flag', () => {
+    t.equal(slugify(
+      'foo bar, bar foo, foo bar',
+      {remove: /[^a-zA-Z0-9 -]/}
+    ), 'foo-bar-bar-foo-foo-bar')
+  })
+
   it('options.lower', () => {
     t.equal(slugify('Foo bAr baZ', {lower: true}), 'foo-bar-baz')
   })
