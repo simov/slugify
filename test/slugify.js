@@ -83,6 +83,11 @@ describe('slugify', () => {
     }), 'foo_barbaz')
   })
 
+  it('options.url', () => {
+    t.equal(slugify('foo_bar. -@-baz!', {url: true}), 'foobarbaz')
+    t.equal(slugify('aaa@!#!bbb. -@-ccc!', {url: true}), 'aaabbbccc')
+  })
+
   it('replace latin chars', () => {
     var charMap = {
       'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A', 'Æ': 'AE',

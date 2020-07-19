@@ -53,6 +53,10 @@
         .replace(new RegExp('[\\s' + replacement + ']+', 'g'), replacement)
     }
 
+    if (options.url) {
+      slug = slug.replace(new RegExp('(?![a-zA-Z0-9]).', 'g'), '')
+    }
+
     return slug
   }
 
