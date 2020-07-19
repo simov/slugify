@@ -26,7 +26,7 @@ slugify('some string', {
   lower: false,      // convert to lower case, defaults to `false`
   strict: false,     // strip special characters except replacement, defaults to `false`
   locale: 'vi',      // language code of the locale to use
-  url: false,        // strips all non English alphabet characters
+  url: false,        // strips all non English characters (doesn't strip numbers), defaults to `false`
 })
 ```
 
