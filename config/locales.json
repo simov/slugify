@@ -1,4 +1,13 @@
 {
+  "de": {
+    "locale": "German",
+    "Ä": "AE",
+    "ä": "ae",
+    "Ö": "OE",
+    "ö": "oe",
+    "Ü": "UE",
+    "ü": "ue"
+  },
   "vi": {
     "locale": "Vietnamese",
     "Đ": "D",

@@ -77,4 +77,17 @@ describe('locale', () => {
       'D-d'
     )
   })
+
+  it('de - german', () => {
+    var alphabet =
+      'Ä ä Ö ö Ü ü'
+
+    t.equal(slugify(alphabet),
+      'A-a-O-o-U-u'
+    )
+
+    t.equal(slugify(alphabet, {locale: 'de'}),
+      'AE-ae-OE-oe-UE-ue'
+    )
+  })
 })
