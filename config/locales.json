@@ -6,7 +6,13 @@
     "Ö": "OE",
     "ö": "oe",
     "Ü": "UE",
-    "ü": "ue"
+    "ü": "ue",
+    "%": "prozent",
+    "&": "und",
+    "|": "oder",
+    "∑": "summe",
+    "∞": "unendlich",
+    "♥": "liebe"
   },
   "vi": {
     "locale": "Vietnamese",
