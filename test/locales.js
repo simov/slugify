@@ -90,4 +90,16 @@ describe('locale', () => {
       'AE-ae-OE-oe-UE-ue'
     )
   })
+  it('fr - french', () => {
+    var alphabet =
+      '% & < > | ¢ £ ¤ ₣ ∑ ∞ ♥' 
+
+    t.equal(slugify(alphabet),
+      'percent-and-less-greater-or-cent-pound-currency-french-franc-sum-infinity-love'
+    )
+
+    t.equal(slugify(alphabet, {locale: 'fr'}),
+      'pourcent-et-plus-petit-plus-grand-ou-centime-livre-devise-franc-somme-infini-amour'
+    )
+  })
 })
