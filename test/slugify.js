@@ -249,4 +249,9 @@ describe('slugify', () => {
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is')
   })
 
+  it('normalize', () => {
+    var slug = decodeURIComponent('a%CC%8Aa%CC%88o%CC%88-123') // åäö-123
+    t.equal(slugify(slug, {remove: /[*+~.()'"!:@]/g}), 'aao-123')
+  })
+
 })
