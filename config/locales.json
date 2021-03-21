@@ -33,5 +33,17 @@
     "∑": "somme",
     "∞": "infini",
     "♥": "amour"
+  },
+  "pt": {
+    "locale": "Portuguese",
+    "%": "porcento",
+    "&": "e",
+    "<": "menor",
+    ">": "maior",
+    "|": "ou",
+    "¢": "centavo",
+    "∑": "soma",
+    "∞": "infinito",
+    "♥": "amor"
   }
 }
