@@ -102,4 +102,16 @@ describe('locale', () => {
       'pourcent-et-plus-petit-plus-grand-ou-centime-livre-devise-franc-somme-infini-amour'
     )
   })
+  it('pt - portuguese', () => {
+    var alphabet =
+      '% & < > | ¢ £ ∑ ∞ ♥' 
+
+    t.equal(slugify(alphabet),
+      'percent-and-less-greater-or-cent-pound-sum-infinity-love'
+    )
+
+    t.equal(slugify(alphabet, {locale: 'pt'}),
+      'porcento-e-menor-maior-ou-centavo-libra-soma-infinito-amor'
+    )
+  })
 })
