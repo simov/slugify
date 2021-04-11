@@ -57,9 +57,7 @@
   }
 
   replace.extend = function (customMap) {
-    for (var key in customMap) {
-      charMap[key] = customMap[key]
-    }
+    Object.assign(charMap, customMap)
   }
 
   return replace
