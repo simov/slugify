@@ -28,7 +28,7 @@
 
     var replacement = options.replacement === undefined ? '-' : options.replacement
 
-    var slug = string.normalize().split('')
+    var slug = Array.from(string.normalize())
       // replace characters based on charMap
       .reduce(function (result, ch) {
         return result + (locale[ch] || charMap[ch] || ch)
