@@ -1,0 +1,34 @@
+{
+  "de": {
+    "Ä": "AE",
+    "ä": "ae",
+    "Ö": "OE",
+    "ö": "oe",
+    "Ü": "UE",
+    "ü": "ue",
+    "%": "prozent",
+    "&": "und",
+    "|": "oder",
+    "∑": "summe",
+    "∞": "unendlich",
+    "♥": "liebe"
+  },
+  "vi": {
+    "Đ": "D",
+    "đ": "d"
+  },
+  "fr": {
+    "%": "pourcent",
+    "&": "et",
+    "<": "plus petit",
+    ">": "plus grand",
+    "|": "ou",
+    "¢": "centime",
+    "£": "livre",
+    "¤": "devise",
+    "₣": "franc",
+    "∑": "somme",
+    "∞": "infini",
+    "♥": "amour"
+  }
+}

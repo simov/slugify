@@ -33,18 +33,12 @@ var build = () => {
     'utf8'
   )
 
-  // update slugify
-  var source =
-    fs.readFileSync(path.resolve(__dirname, '../slugify.js'), 'utf8')
-      .replace(
-        /var charMap = JSON\.parse\(.*\)/,
-        `var charMap = JSON.parse('${JSON.stringify(sort(charmap)).replace(/'/g, '\\\'')}')`
-      )
-      .replace(
-        /var locales = JSON\.parse\(.*\)/,
-        `var locales = JSON.parse('${JSON.stringify(clean(locales))}')`
-      )
-  fs.writeFileSync(path.resolve(__dirname, '../slugify.js'), source, 'utf8')
+  // update locales.json in src folder
+  fs.writeFileSync(
+    path.resolve(__dirname, '../src/locales.json'),
+    JSON.stringify(clean(locales), null, 2),
+    'utf8'
+  )
 }
 
 build()
