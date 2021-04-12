@@ -12,7 +12,8 @@ slugify('some string') // some-string
 slugify('some string', '_')  // some_string
 ```
 
-- Vanilla ES5 JavaScript
+- Vanilla ES2015 JavaScript
+    - If you need to use Slugify with older browsers, consider using [version 1.4.7](https://github.com/simov/slugify/releases/tag/v1.4.7)
 - No dependencies
 - Coerces foreign symbols to their English equivalent (check out the [charMap][charmap] for more details)
 - Works in the browser (window.slugify) and AMD/CommonJS-flavored module loaders
