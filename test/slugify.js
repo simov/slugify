@@ -76,6 +76,15 @@ describe('slugify', () => {
     t.equal(slugify('foo @ bar', {strict: true}), 'foo-bar')
   })
 
+  it('options.trim - remove separator at start and at the end', () => {
+    t.equal(slugify('-foo bar', {trim: true}), 'foo-bar')                     // at start
+    t.equal(slugify('foo bar-', {trim: true}), 'foo-bar')                     // at the end
+    t.equal(slugify('-foo bar-', {trim: true}), 'foo-bar')                    // both
+    t.equal(slugify('---foo bar', {trim: true}), 'foo-bar')                   // duplicate at start
+    t.equal(slugify('--foo bar---', {trim: true}), 'foo-bar')                 // duplicate both
+    t.equal(slugify('_foo bar__', {replacement: '_', trim: true}), 'foo_bar') // another separator
+  })
+
   it('options.replacement and options.strict', () => {
     t.equal(slugify('foo_@_bar-baz!', {
       replacement: '_',

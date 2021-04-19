@@ -53,6 +53,12 @@
         .replace(new RegExp('[\\s' + replacement + ']+', 'g'), replacement)
     }
 
+    if (options.trim) {
+      slug = slug
+        .replace(new RegExp('^' + replacement + '+'), '')
+        .replace(new RegExp(replacement + '+$'), '')
+    }
+
     return slug
   }
 
