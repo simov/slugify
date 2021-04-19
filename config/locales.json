@@ -14,10 +14,20 @@
     "∞": "unendlich",
     "♥": "liebe"
   },
-  "vi": {
-    "locale": "Vietnamese",
-    "Đ": "D",
-    "đ": "d"
+  "es": {
+    "locale": "Spanish",
+    "%": "por ciento",
+    "&": "y",
+    "<": "menor que",
+    ">": "mayor que",
+    "|": "o",
+    "¢": "centavos",
+    "£": "libras",
+    "¤": "moneda",
+    "₣": "francos",
+    "∑": "suma",
+    "∞": "infinito",
+    "♥": "amor"
   },
   "fr": {
     "locale": "French",
@@ -33,5 +43,10 @@
     "∑": "somme",
     "∞": "infini",
     "♥": "amour"
+  },
+  "vi": {
+    "locale": "Vietnamese",
+    "Đ": "D",
+    "đ": "d"
   }
 }

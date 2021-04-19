@@ -90,9 +90,21 @@ describe('locale', () => {
       'AE-ae-OE-oe-UE-ue'
     )
   })
+  it('es - spanish', () => {
+    var alphabet =
+      '% & < > | ¢ £ ¤ ₣ ∑ ∞ ♥'
+
+    t.equal(slugify(alphabet),
+      'percent-and-less-greater-or-cent-pound-currency-french-franc-sum-infinity-love'
+    )
+
+    t.equal(slugify(alphabet, {locale: 'es'}),
+      'por-ciento-y-menor-que-mayor-que-o-centavos-libras-moneda-francos-suma-infinito-amor'
+    )
+  })
   it('fr - french', () => {
     var alphabet =
-      '% & < > | ¢ £ ¤ ₣ ∑ ∞ ♥' 
+      '% & < > | ¢ £ ¤ ₣ ∑ ∞ ♥'
 
     t.equal(slugify(alphabet),
       'percent-and-less-greater-or-cent-pound-currency-french-franc-sum-infinity-love'
