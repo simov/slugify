@@ -54,8 +54,14 @@
     }
 
     if (options.trim) {
+      //escape special characters
+      if('.*+-?^${}()|[]@\\'.includes(replacement)) {
+        replacement = '\\' + replacement
+      }
       slug = slug
+        // remove separator at start
         .replace(new RegExp('^' + replacement + '+'), '')
+        // remove separator at the end
         .replace(new RegExp(replacement + '+$'), '')
     }
 

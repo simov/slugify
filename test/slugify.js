@@ -83,6 +83,8 @@ describe('slugify', () => {
     t.equal(slugify('---foo bar', {trim: true}), 'foo-bar')                   // duplicate at start
     t.equal(slugify('--foo bar---', {trim: true}), 'foo-bar')                 // duplicate both
     t.equal(slugify('_foo bar__', {replacement: '_', trim: true}), 'foo_bar') // another separator
+    t.equal(slugify('*foo bar**', {replacement: '*', trim: true}), 'foo*bar') // special character
+    t.equal(slugify('.foo bar..', {replacement: '.', trim: true}), 'foo.bar') // special character
   })
 
   it('options.replacement and options.strict', () => {
