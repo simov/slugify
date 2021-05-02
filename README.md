@@ -71,9 +71,8 @@ var slugify = require('slugify')
 
 ---
 
-> This module was originally a vanilla javascript port of [node-slug][node-slug].<br>
-> Note that the original [slug][slug] module has been ported to vanilla javascript too.<br>
-> One major difference between the two modules is that `slugify` does not depend on the external [unicode][unicode] module.
+> Originally this was a vanilla javascript port of [node-slug][node-slug].<br>
+> Note that the original [slug][slug] module has been ported to vanilla javascript too.
 
 
   [npm-version]: https://img.shields.io/npm/v/slugify.svg?style=flat-square (NPM Package Version)
