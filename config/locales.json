@@ -44,6 +44,19 @@
     "∞": "infini",
     "♥": "amour"
   },
+  "pt": {
+    "locale": "Portuguese",
+    "%": "porcento",
+    "&": "e",
+    "<": "menor",
+    ">": "maior",
+    "|": "ou",
+    "¢": "centavo",
+    "∑": "soma",
+    "£": "libra",
+    "∞": "infinito",
+    "♥": "amor"
+  },
   "uk": {
     "locale": "Ukranian",
     "И": "Y",
