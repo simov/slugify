@@ -254,4 +254,7 @@ describe('slugify', () => {
     t.equal(slugify(slug, {remove: /[*+~.()'"!:@]/g}), 'aao-123')
   })
 
+  it('replaces leading and trailing replacement chars', () => {
+    t.equal(slugify('-Come on, fhqwhgads-'), 'Come-on-fhqwhgads')
+  })
 })
