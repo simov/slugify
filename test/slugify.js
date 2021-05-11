@@ -257,4 +257,8 @@ describe('slugify', () => {
   it('replaces leading and trailing replacement chars', () => {
     t.equal(slugify('-Come on, fhqwhgads-'), 'Come-on-fhqwhgads')
   })
+
+  it('replaces leading and trailing replacement chars in strict mode', () => {
+    t.equal(slugify('! Come on, fhqwhgads !', { strict: true }), 'Come-on-fhqwhgads')
+  })
 })
