@@ -249,6 +249,16 @@ describe('slugify', () => {
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is')
   })
 
+  it('replace characters made up of multiple code units', () => {
+    slugify.extend({'🚣': 'person-rowing-boat'})
+    t.equal(slugify('she is a 🚣'), 'she-is-a-person-rowing-boat')
+
+    delete require.cache[require.resolve('../')]
+    slugify = require('../')
+
+    t.equal(slugify('she is a 🚣'), 'she-is-a')
+  })
+
   it('normalize', () => {
     var slug = decodeURIComponent('a%CC%8Aa%CC%88o%CC%88-123') // åäö-123
     t.equal(slugify(slug, {remove: /[*+~.()'"!:@]/g}), 'aao-123')
