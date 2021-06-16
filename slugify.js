@@ -28,6 +28,8 @@
 
     var replacement = options.replacement === undefined ? '-' : options.replacement
 
+    var trim = options.trim === undefined ? true : options.trim
+
     var slug = string.normalize().split('')
       // replace characters based on charMap
       .reduce(function (result, ch) {
@@ -40,11 +42,13 @@
       slug = slug.replace(/[^A-Za-z0-9\s]/g, '');
     }
 
-    // Remove leading/trailing spaces, then replace all other spaces with
-    // replacement character, treating multiple consecutive spaces as a single
-    // space.
-    slug = slug.trim()
-      .replace(/\s+/g, replacement);
+    if (trim) {
+      slug = slug.trim()
+    }
+
+    // Replace spaces with replacement character, treating multiple consecutive
+    // spaces as a single space.
+    slug = slug.replace(/\s+/g, replacement);
 
     if (options.lower) {
       slug = slug.toLowerCase()
