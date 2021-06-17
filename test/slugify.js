@@ -261,4 +261,8 @@ describe('slugify', () => {
   it('replaces leading and trailing replacement chars in strict mode', () => {
     t.equal(slugify('! Come on, fhqwhgads !', { strict: true }), 'Come-on-fhqwhgads')
   })
+
+  it('should preserve leading/trailing replacement characters if option set', function () {
+    t.equal(slugify(' foo bar baz ', { trim: false }), '-foo-bar-baz-')
+  })
 })
