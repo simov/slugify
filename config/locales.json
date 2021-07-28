@@ -79,14 +79,15 @@
   },
   "da": {
     "locale": "Danish",
-    "Æ": "AE",
     "Ø": "OE",
+    "ø": "oe",
     "Å": "AA",
+    "å": "aa",
     "%": "procent",
     "&": "og",
     "|": "eller",
     "$": "dollar",
     "<": "mindre end",
-    ">": "Større end"
+    ">": "større end"
   }
 }
