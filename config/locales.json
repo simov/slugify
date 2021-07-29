@@ -76,5 +76,18 @@
     "locale": "Vietnamese",
     "Đ": "D",
     "đ": "d"
+  },
+  "da": {
+    "locale": "Danish",
+    "Ø": "OE",
+    "ø": "oe",
+    "Å": "AA",
+    "å": "aa",
+    "%": "procent",
+    "&": "og",
+    "|": "eller",
+    "$": "dollar",
+    "<": "mindre end",
+    ">": "større end"
   }
 }
