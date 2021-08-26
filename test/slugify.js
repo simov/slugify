@@ -42,6 +42,10 @@ describe('slugify', () => {
     })
   })
 
+  it('leave / char', () => {
+    t.equal(slugify('/foo/bar baz'), '/foo/bar-baz')
+  })
+
   it('options.replacement', () => {
     t.equal(slugify('foo bar baz', {replacement: '_'}), 'foo_bar_baz')
   })
