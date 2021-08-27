@@ -16,6 +16,7 @@ declare function slugify(
         strict?: boolean;
         locale?: string;
         trim?: boolean;
+        keepSlashes?: boolean;
       }
     | string,
 
