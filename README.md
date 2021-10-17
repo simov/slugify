@@ -3,6 +3,14 @@
 
 [![npm-version]][npm] [![travis-ci]][travis] [![coveralls-status]][coveralls]
 
+## Install
+
+```
+$ npm install slugify
+```
+
+## Usage
+
 ```js
 var slugify = require('slugify')
 
