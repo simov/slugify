@@ -103,5 +103,17 @@
     "$": "dollar",
     "<": "mindre end",
     ">": "større end"
+  },
+  "nb": {
+    "locale": "Norwegian",
+    "&": "og"
+  },
+  "it": {
+    "locale": "Italian",
+    "&": "e"
+  },
+  "nl": {
+    "locale": "Dutch",
+    "&": "en"
   }
 }
