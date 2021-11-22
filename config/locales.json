@@ -115,5 +115,9 @@
   "nl": {
     "locale": "Dutch",
     "&": "en"
+  },
+  "sv": {
+    "locale": "Swedish",
+    "&": "och"
   }
 }
