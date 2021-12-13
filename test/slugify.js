@@ -249,7 +249,7 @@ describe('slugify', () => {
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is')
   })
 
-  it('consoliodates repeated replacement characters from extend()', () => {
+  it('consolidates repeated replacement characters from extend()', () => {
     // https://github.com/simov/slugify/issues/144
     slugify.extend({'+': '-'})
     t.equal(slugify('day + night'), 'day-night')
