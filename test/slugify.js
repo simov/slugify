@@ -249,6 +249,17 @@ describe('slugify', () => {
     t.equal(slugify('unicode ♥ is ☢'), 'unicode-love-is')
   })
 
+  it('consoliodates repeated replacement characters from extend()', () => {
+    // https://github.com/simov/slugify/issues/144
+    slugify.extend({'+': '-'})
+    t.equal(slugify('day + night'), 'day-night')
+
+    delete require.cache[require.resolve('../')]
+    slugify = require('../')
+
+    t.equal(slugify('day + night'), 'day-+-night')
+  })
+
   it('normalize', () => {
     var slug = decodeURIComponent('a%CC%8Aa%CC%88o%CC%88-123') // åäö-123
     t.equal(slugify(slug, {remove: /[*+~.()'"!:@]/g}), 'aao-123')

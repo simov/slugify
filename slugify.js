@@ -33,7 +33,12 @@
     var slug = string.normalize().split('')
       // replace characters based on charMap
       .reduce(function (result, ch) {
-        return result + (locale[ch] || charMap[ch] ||  (ch === replacement ? ' ' : ch))
+        if (ch === '+') debugger;
+        var appendChar = locale[ch] || charMap[ch] || ch;
+        if (appendChar === replacement) {
+          appendChar = ' ';
+        }
+        return result + appendChar
           // remove not allowed characters
           .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '')
       }, '');
