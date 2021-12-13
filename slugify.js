@@ -33,7 +33,6 @@
     var slug = string.normalize().split('')
       // replace characters based on charMap
       .reduce(function (result, ch) {
-        if (ch === '+') debugger;
         var appendChar = locale[ch] || charMap[ch] || ch;
         if (appendChar === replacement) {
           appendChar = ' ';
