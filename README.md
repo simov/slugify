@@ -1,7 +1,7 @@
 
 # slugify
 
-[![npm-version]][npm] [![travis-ci]][travis] [![coveralls-status]][coveralls]
+[![npm-version]][npm] [![coveralls-status]][coveralls]
 
 ```js
 var slugify = require('slugify')
@@ -77,11 +77,9 @@ var slugify = require('slugify')
 
 
   [npm-version]: https://img.shields.io/npm/v/slugify.svg?style=flat-square (NPM Package Version)
-  [travis-ci]: https://img.shields.io/travis/simov/slugify/master.svg?style=flat-square (Build Status - Travis CI)
   [coveralls-status]: https://img.shields.io/coveralls/simov/slugify.svg?style=flat-square (Test Coverage - Coveralls)
 
   [npm]: https://www.npmjs.com/package/slugify
-  [travis]: https://travis-ci.org/simov/slugify
   [coveralls]: https://coveralls.io/r/simov/slugify?branch=master
 
   [node-slug]: https://github.com/dodo/node-slug
