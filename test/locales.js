@@ -129,4 +129,30 @@ describe('locale', () => {
       'porcento-e-menor-maior-ou-centavo-libra-soma-infinito-amor'
     )
   })
+
+  it('nb - Norwegian', () => {
+    var alphabet =
+      '& Å Æ Ø å æ ø'
+
+    t.equal(slugify(alphabet),
+      'and-A-AE-O-a-ae-o'
+    )
+
+    t.equal(slugify(alphabet, {locale: 'nb'}),
+      'og-AA-AE-OE-aa-ae-oe'
+    )
+  })
+
+  it('sv - Swedish', () => {
+    var alphabet =
+      '& Å Ä Ö å ä ö'
+
+    t.equal(slugify(alphabet),
+      'and-A-A-O-a-a-o'
+    )
+
+    t.equal(slugify(alphabet, {locale: 'sv'}),
+      'och-AA-AE-OE-aa-ae-oe'
+    )
+  })
 })
