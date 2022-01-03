@@ -151,7 +151,7 @@ describe('locale', () => {
       'and-a-a-o-a-a-o'
     )
 
-    t.equal(slugify(alphabet, {locale: 'nb'}),
+    t.equal(slugify(alphabet, {locale: 'sv'}),
       'og-AA-AE-OE-aa-ae-oe'
     )
   })
