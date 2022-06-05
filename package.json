@@ -21,6 +21,13 @@
     "nyc": "^15.1.0"
   },
   "main": "./slugify.js",
+  "exports": {
+    ".": {
+      "require": "./slugify.js",
+      "import": "./slugify.mjs",
+      "types": "./slugify.d.ts"
+    }
+  },
   "files": [
     "LICENSE",
     "README.md",
