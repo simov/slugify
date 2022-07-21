@@ -1,9 +1,13 @@
 {
+  "#": "sharp",
   "$": "dollar",
   "%": "percent",
   "&": "and",
+  ".": "",
   "<": "less",
   ">": "greater",
+  "c#": "c-sharp",
+  "c++": "c-plus-plus",
   "|": "or",
   "¢": "cent",
   "£": "pound",
@@ -639,9 +643,5 @@
   "ﻵ": "laa",
   "ﻷ": "laa",
   "ﻹ": "lai",
-  "ﻻ": "la",
-  "c#": "c-sharp",
-  "c++": "c-plus-plus",
-  ".": "",
-  "#": "sharp"
+  "ﻻ": "la"
 }
