@@ -38,9 +38,9 @@
           appendChar = ' ';
         }
         return result + appendChar
-          // remove not allowed characters
-          .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '')
-      }, '');
+      }, '')
+      // remove not allowed characters
+      .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '');
 
     if (options.strict) {
       slug = slug.replace(/[^A-Za-z0-9\s]/g, '');
