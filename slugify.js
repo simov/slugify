@@ -24,6 +24,12 @@
       ? {replacement: options}
       : options || {}
 
+    // Duck-typing: Presence of Symbol.match means we're (probably) a RegExp.
+    if (options.remove && options.remove[Symbol.match]) {
+      // Add a `g` flag to the RegExp so replace() replaces everything.
+      options.remove = new RegExp(options.remove, 'g')
+    }
+
     var locale = locales[options.locale] || {}
 
     var replacement = options.replacement === undefined ? '-' : options.replacement
@@ -38,9 +44,9 @@
           appendChar = ' ';
         }
         return result + appendChar
-          // remove not allowed characters
-          .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '')
-      }, '');
+      }, '')
+      // remove not allowed characters
+      .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '');
 
     if (options.strict) {
       slug = slug.replace(/[^A-Za-z0-9\s]/g, '');

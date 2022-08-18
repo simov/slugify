@@ -55,6 +55,11 @@ describe('slugify', () => {
       'foo *+~.() bar \'"!:@ baz',
       {remove: /[$*_+~.()'"!\-:@]/g}
     ), 'foo-bar-baz')
+
+    t.equal(slugify(
+      'AFdAFd',
+      { remove: /AF/g }
+    ), 'dd')
   })
 
   it('options.remove regex without g flag', () => {
