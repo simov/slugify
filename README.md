@@ -35,6 +35,15 @@ slugify('some string', {
 
 For example, to remove `*+~.()'"!:@` from the result slug, you can use `slugify('..', {remove: /[*+~.()'"!:@]/g})`.
 
+* If the value of `remove` is a regular expression, it should be a
+  [character class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes)
+  and only a character class. It should also use the
+  [global flag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global).
+  (For example: `/[*+~.()'"!:@]/g`.) Otherwise, the `remove` option might not
+  work as expected.
+* If the value of `remove` is a string, it should be a single character.
+  Otherwise, the `remove` option might not work as expected.
+
 ## Locales
 
 The main `charmap.json` file contains all known characters and their transliteration. All new characters should be added there first. In case you stumble upon a character already set in `charmap.json`, but not transliterated correctly according to your language, then you have to add those characters in `locales.json` to override the already existing transliteration in `charmap.json`, but for your locale only.
