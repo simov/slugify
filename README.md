@@ -39,7 +39,7 @@ For example, to remove `*+~.()'"!:@` from the result slug, you can use `slugify(
   [character class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes)
   and only a character class. It should also use the
   [global flag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global).
-  (For example: `/[[*+~.()'"!:@]/g`.) Otherwise, the `remove` option might not
+  (For example: `/[*+~.()'"!:@]/g`.) Otherwise, the `remove` option might not
   work as expected.
 * If the value of `remove` is a string, it should be a single character.
   Otherwise, the `remove` option might not work as expected.
