@@ -21,4 +21,4 @@ declare function slugify(
 
 ): string;
 
-export default slugify;
+export = slugify;
