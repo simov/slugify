@@ -4,6 +4,8 @@ declare module slugify {
   }
 
   export function extend (args: ExtendArgs): void;
+  const _default: typeof slugify;
+  export { _default as default };
 }
 
 declare function slugify(
@@ -22,3 +24,4 @@ declare function slugify(
 ): string;
 
 export = slugify;
+export as namespace slugify;
