@@ -276,4 +276,13 @@ describe('slugify', () => {
   it('should preserve leading/trailing replacement characters if option set', function () {
     t.equal(slugify(' foo bar baz ', { trim: false }), '-foo-bar-baz-')
   })
+
+  it('should correctly handle empty strings in charmaps', () => {
+    slugify.extend({ 'ъ': '' })
+    t.equal(slugify('ъяъ'), 'ya')
+    t.equal(slugify('ъяъ', { remove: /[]/g }), 'ya')
+
+    delete require.cache[require.resolve('../')]
+    slugify = require('../')
+  })
 })
