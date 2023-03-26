@@ -1,6 +1,8 @@
 ## Change Log
 
-### upcoming (2022-08-25)
+### v1.6.6 (2023-03-26)
+- [#174](https://github.com/simov/slugify/pull/174) correctly handle empty strings in charmaps (@iliazeus)
+- [#169](https://github.com/simov/slugify/pull/169) Add changelog (@simov)
 - [#168](https://github.com/simov/slugify/pull/168) chore: document limitations of the `remove` option (#168) (@Trott)
 - [#157](https://github.com/simov/slugify/pull/157) Run CI in Node.js 18 (@stscoundrel)
 - [#151](https://github.com/simov/slugify/pull/151) Update README.md (#151) (@lorand-horvath)
