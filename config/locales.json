@@ -86,6 +86,24 @@
     "Г": "H",
     "г": "h"
   },
+  "tr": {
+    "locale": "Turkish",
+    "$": "dolar",
+    "₺": "TL",
+    "%": "yuzde",
+    "&": "ve",
+    "<": "kucuktur",
+    ">": "buyuktur",
+    "|": "veya",
+    "£": "sterlin",
+    "¤": "para-birimi",
+    "¥": "yen",
+    "©": "telif-hakki",
+    "®": "tescilli",
+    "∑": "toplam",
+    "∞": "sonsuzluk",
+    "♥": "kalp"
+  },
   "vi": {
     "locale": "Vietnamese",
     "Đ": "D",
