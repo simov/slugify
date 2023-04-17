@@ -130,6 +130,19 @@ describe('locale', () => {
     )
   })
 
+  it('ro - romanian', () => {
+    var alphabet =
+      'Ă ă Â â Î î Ș ș Ț ț % & < > | $ ¢ ∑ £ ∞ ♥'
+
+    t.equal(slugify(alphabet),
+      'A-a-A-a-I-i-S-s-T-t-percent-and-less-greater-or-dollar-cent-sum-pound-infinity-love'
+    )
+
+    t.equal(slugify(alphabet, {locale: 'ro'}),
+      'A-a-A-a-I-i-S-s-T-t-la-suta-si-mai-mic-mai-mare-sau-dolar-cent-suma-lira-infinit-dragoste'
+    )
+  })
+
   it('nb - Norwegian', () => {
     var alphabet =
       '& Å Æ Ø å æ ø'
