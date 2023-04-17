@@ -71,6 +71,20 @@
     "∞": "infinito",
     "♥": "amor"
   },
+  "ro": {
+    "locale": "Romanian",
+    "%": "la suta",
+    "&": "si",
+    "<": "mai mic",
+    ">": "mai mare",
+    "|": "sau",
+    "$": "dolar",
+    "¢": "cent",
+    "∑": "suma",
+    "£": "lira",
+    "∞": "infinit",
+    "♥": "dragoste"
+  },
   "uk": {
     "locale": "Ukranian",
     "И": "Y",
