@@ -76,6 +76,14 @@ describe('slugify', () => {
     t.equal(slugify('foo @ bar', {strict: true}), 'foo-bar')
   })
 
+  it('options.strict, options.preserve and options.replacement', () => {
+    t.equal(slugify('!foo.bar_baz@#~', {
+      replacement: '_',
+      strict: true,
+      preserve: ['.']
+    }), 'foo.bar_baz')
+  })
+
   it('options.replacement and options.strict', () => {
     t.equal(slugify('foo_@_bar-baz!', {
       replacement: '_',
