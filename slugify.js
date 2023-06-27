@@ -43,7 +43,9 @@
       }, '');
 
     if (options.strict) {
-      slug = slug.replace(/[^A-Za-z0-9\s]/g, '');
+      const preserveCharacters = options.preserve ? `\\${options.preserve.join('\\')}` : '';
+      const regex = new RegExp(`[^A-Za-z0-9${preserveCharacters}\\s]`, 'g');
+      slug = slug.replace(regex, '');
     }
 
     if (trim) {
