@@ -68,6 +68,10 @@ describe('slugify', () => {
     t.equal(slugify('Foo bAr baZ', {lower: true}), 'foo-bar-baz')
   })
 
+  it('options.preserve', () => {
+    t.equal(slugify('/url/to/foo bar baz', {preserve: ['/']}), '/url/to/foo-bar-baz')
+  });
+
   it('options.strict', () => {
     t.equal(slugify('foo_bar. -@-baz!', {strict: true}), 'foobar-baz')
   })
