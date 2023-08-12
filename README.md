@@ -4,7 +4,7 @@
 [![npm-version]][npm] [![coveralls-status]][coveralls]
 
 ```js
-var slugify = require('slugify')
+const slugify = require('slugify')
 
 slugify('some string') // some-string
 
@@ -69,7 +69,7 @@ Keep in mind that the `extend` method extends/overrides the default `charMap` fo
 
 ```js
 delete require.cache[require.resolve('slugify')]
-var slugify = require('slugify')
+const slugify = require('slugify')
 ```
 
 ## Contribute
