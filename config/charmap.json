@@ -2,6 +2,7 @@
   "$": "dollar",
   "%": "percent",
   "&": "and",
+  "+": "plus",
   "<": "less",
   ">": "greater",
   "|": "or",
