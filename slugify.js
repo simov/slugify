@@ -30,6 +30,8 @@
 
     var trim = options.trim === undefined ? true : options.trim
 
+    var preserve = options.preserve === undefined ? [] : `\\${options.preserve.join('\\')}`;
+
     var slug = string.normalize().split('')
       // replace characters based on charMap
       .reduce(function (result, ch) {
@@ -37,13 +39,17 @@
         if (appendChar === undefined) appendChar = charMap[ch];
         if (appendChar === undefined) appendChar = ch;
         if (appendChar === replacement) appendChar = ' ';
+
+        const regexp = new RegExp(`[^\\w\\s$*_+~.()'"!\\-:@${preserve}]+`, 'g')
+
         return result + appendChar
           // remove not allowed characters
-          .replace(options.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '')
+          .replace(options.remove || regexp, '')
       }, '');
 
     if (options.strict) {
-      slug = slug.replace(/[^A-Za-z0-9\s]/g, '');
+      const regexp = new RegExp(`[^A-Za-z0-9${preserve}\\s]`, 'g')
+      slug = slug.replace(regexp, '')
     }
 
     if (trim) {

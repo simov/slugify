@@ -68,12 +68,24 @@ describe('slugify', () => {
     t.equal(slugify('Foo bAr baZ', {lower: true}), 'foo-bar-baz')
   })
 
+  it('options.preserve', () => {
+    t.equal(slugify('/url/to/foo bar baz', {preserve: ['/']}), '/url/to/foo-bar-baz')
+  });
+
   it('options.strict', () => {
     t.equal(slugify('foo_bar. -@-baz!', {strict: true}), 'foobar-baz')
   })
 
   it('options.strict - remove duplicates of the replacement character', () => {
     t.equal(slugify('foo @ bar', {strict: true}), 'foo-bar')
+  })
+
+  it('options.strict, options.preserve and options.replacement', () => {
+    t.equal(slugify('!foo.bar_baz@#~', {
+      replacement: '_',
+      strict: true,
+      preserve: ['.']
+    }), 'foo.bar_baz')
   })
 
   it('options.replacement and options.strict', () => {
