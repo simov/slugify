@@ -1,20 +1,20 @@
 
-var fs = require('fs')
-var path = require('path')
+const fs = require('fs')
+const path = require('path')
 
-var charmap = JSON.parse(
+const charmap = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, '../config/charmap.json'), 'utf8'))
 
-var locales = JSON.parse(
+const locales = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, '../config/locales.json'), 'utf8'))
 
 
-var sort = (obj) =>
+const sort = (obj) =>
   Object.keys(obj)
     .sort((a, b) => a > b ? 1 : a < b ? -1 : 0)
     .reduce((all, key) => (all[key] = obj[key], all), {})
 
-var clean = (locales) =>
+const clean = (locales) =>
   Object.keys(locales)
     .reduce((all, locale) => (
       all[locale] =
@@ -25,7 +25,7 @@ var clean = (locales) =>
     ), {})
 
 
-var build = () => {
+const build = () => {
   // update charmap - remove duplicates and sort
   fs.writeFileSync(
     path.resolve(__dirname, '../config/charmap.json'),
@@ -34,15 +34,15 @@ var build = () => {
   )
 
   // update slugify
-  var source =
+  const source =
     fs.readFileSync(path.resolve(__dirname, '../slugify.js'), 'utf8')
       .replace(
-        /var charMap = JSON\.parse\(.*\)/,
-        `var charMap = JSON.parse('${JSON.stringify(sort(charmap)).replace(/'/g, '\\\'')}')`
+        /let charMap = JSON\.parse\(.*\)/,
+        `let charMap = JSON.parse('${JSON.stringify(sort(charmap)).replace(/'/g, '\\\'')}')`
       )
       .replace(
-        /var locales = JSON\.parse\(.*\)/,
-        `var locales = JSON.parse('${JSON.stringify(clean(locales))}')`
+        /let locales = JSON\.parse\(.*\)/,
+        `let locales = JSON.parse('${JSON.stringify(clean(locales))}')`
       )
   fs.writeFileSync(path.resolve(__dirname, '../slugify.js'), source, 'utf8')
 }
