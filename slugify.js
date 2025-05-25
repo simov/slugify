@@ -1,4 +1,21 @@
 
+/**
+ * Converts a string into a URL-friendly slug.
+ *
+ * @param {string} str - The input string to be slugified.
+ * @param {Object} [options] - Optional configuration object.
+ * @param {string} [options.replacement='-'] - Character used to replace spaces.
+ * @param {boolean} [options.lower=true] - Convert result to lowercase.
+ * @returns {string} The slugified version of the string.
+ */
+function slugify(str, options) {
+  // function body...
+}
+
+
+
+
+
 ;(function (name, root, factory) {
   if (typeof exports === 'object') {
     module.exports = factory()
@@ -67,3 +84,5 @@
 
   return replace
 }))
+
+
