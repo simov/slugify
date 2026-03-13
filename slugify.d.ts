@@ -1,4 +1,4 @@
-declare module slugify {
+declare namespace slugify {
   type ExtendArgs = {
     [key: string]: any;
   }
