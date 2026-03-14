@@ -210,6 +210,16 @@ describe('slugify', () => {
     }
   })
 
+  it('replace norse chars', () => {
+    const charMap = {
+      'ǫ': 'o',
+      'Ǫ': 'O',
+    }
+    for (const ch in charMap) {
+      t.equal(slugify(`foo ${ch} bar baz`), `foo-${charMap[ch]}-bar-baz`)
+    }
+  })
+
   it('replace currencies', () => {
     var charMap = {
       '€': 'euro', '₢': 'cruzeiro', '₣': 'french franc', '£': 'pound',
