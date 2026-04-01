@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.6.9 (2026-04-01)
+- [#171](https://github.com/simov/slugify/pull/171) fix: correct CommonJS export for "module": "node16" + ESM (171) (@karlhorky)
+
 ### v1.6.8 (2026-03-13)
 - [#206](https://github.com/simov/slugify/pull/206) fix: change declare module to namespace in slugify.d.ts (#206) (@kongvut)
 - [#202](https://github.com/simov/slugify/pull/202) CI: add Node 24 (#202) (@stscoundrel)
