@@ -1,5 +1,11 @@
 ## Change Log
 
+### v1.6.8 (2026-03-13)
+- [#206](https://github.com/simov/slugify/pull/206) fix: change declare module to namespace in slugify.d.ts (#206) (@kongvut)
+- [#202](https://github.com/simov/slugify/pull/202) CI: add Node 24 (#202) (@stscoundrel)
+- [#193](https://github.com/simov/slugify/pull/193) Add Node.js 22 to CI & update CI actions (#193) (@stscoundrel)
+- [#188](https://github.com/simov/slugify/pull/188) Run CI in Node.js 20 (@stscoundrel)
+
 ### v1.6.6 (2023-03-26)
 - [#174](https://github.com/simov/slugify/pull/174) correctly handle empty strings in charmaps (@iliazeus)
 - [#169](https://github.com/simov/slugify/pull/169) Add changelog (@simov)
@@ -38,7 +44,7 @@
 
 ### v1.5.1 (2021-05-02)
 - [#111](https://github.com/simov/slugify/pull/111) Two new special chars for charmap.json (@ovidasas)
-- [#113](https://github.com/simov/slugify/pull/113) Added Ukrainian characters (@YegorShtonda)
+- [#113](https://github.com/simov/slugify/pull/113) Added Ukrainian characters (@eglnst)
 - [#107](https://github.com/simov/slugify/pull/107) Indicate that ES2015 is required & use Object.assign (@realityking)
 
 ### v1.4.7 (2021-02-21)
