@@ -19,18 +19,25 @@
     "coveralls": "^3.1.0",
     "github-changes": "^2.0.3",
     "mocha": "^7.2.0",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "rollup": "^1.32.1",
+    "@rollup/plugin-json": "^4.1.0"
   },
-  "main": "./slugify.js",
+  "main": "./slugify.cjs.js",
+  "module": "./slugify.mjs",
+  "unpkg": "./slugify.js",
+  "jsdelivr": "./slugify.js",
   "files": [
     "LICENSE",
     "README.md",
     "slugify.d.ts",
+    "slugify.cjs.js",
+    "slugify.mjs",
     "slugify.js"
   ],
   "types": "slugify.d.ts",
   "scripts": {
-    "build": "node bin/build",
+    "build": "node bin/build && npx rollup -c",
     "build:changelog": "github-changes --owner simov --repository slugify --only-pulls --use-commit-body --date-format '(YYYY-MM-DD)' --file CHANGELOG.md --verbose",
     "test:ci": "npx mocha --recursive",
     "test:cov": "npx nyc --reporter=lcov --reporter=text-summary mocha -- --recursive",
