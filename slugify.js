@@ -36,6 +36,8 @@
         var appendChar = locale[ch];
         if (appendChar === undefined) appendChar = charMap[ch];
         if (appendChar === undefined) appendChar = ch;
+        // A null mapping (e.g. extend({ '%': null })) removes the character.
+        if (appendChar === null) appendChar = '';
         if (appendChar === replacement) appendChar = ' ';
         return result + appendChar
           // remove not allowed characters
