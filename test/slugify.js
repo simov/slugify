@@ -152,6 +152,10 @@ describe('slugify', () => {
     }
   })
 
+  it('replace cyrillic i with grave', () => {
+    t.equal(slugify('foo ѝ bar baz'), 'foo-i-bar-baz')
+  })
+
   it('replace kazakh cyrillic chars', () => {
     var charMap = {
       'Ә': 'AE', 'ә': 'ae', 'Ғ': 'GH', 'ғ': 'gh', 'Қ': 'KH', 'қ': 'kh', 'Ң': 'NG', 'ң': 'ng',
