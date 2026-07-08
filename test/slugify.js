@@ -188,6 +188,15 @@ describe('slugify', () => {
     }
   })
 
+  it('replace slovak chars', () => {
+    var charMap = {
+      'ĺ': 'l', 'ľ': 'l', 'ŕ': 'r', 'Ĺ': 'L', 'Ľ': 'L', 'Ŕ': 'R'
+    }
+    for (var ch in charMap) {
+      t.equal(slugify('foo ' + ch + ' bar baz'), 'foo-' + charMap[ch] + '-bar-baz')
+    }
+  })
+
   it('replace latvian chars', () => {
     var charMap = {
       'ā': 'a', 'č': 'c', 'ē': 'e', 'ģ': 'g', 'ī': 'i', 'ķ': 'k', 'ļ': 'l', 'ņ': 'n',
