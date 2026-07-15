@@ -210,6 +210,17 @@ describe('slugify', () => {
     }
   })
 
+  it('replace armenian chars', () => {
+    // U+0587 is the lowercase ligature "ech yiwn"; it must transliterate to
+    // lowercase to preserve case, matching the other Armenian letters.
+    var charMap = {
+      'և': 'ev'
+    }
+    for (var ch in charMap) {
+      t.equal(slugify('foo ' + ch + ' bar baz'), 'foo-' + charMap[ch] + '-bar-baz')
+    }
+  })
+
   it('replace currencies', () => {
     var charMap = {
       '€': 'euro', '₢': 'cruzeiro', '₣': 'french franc', '£': 'pound',
