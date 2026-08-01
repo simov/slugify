@@ -285,4 +285,13 @@ describe('slugify', () => {
     delete require.cache[require.resolve('../')]
     slugify = require('../')
   })
+
+  it('should correctly handle null values in extend() as character removal', () => {
+    slugify.extend({ '%': null, '$': null })
+    t.equal(slugify('100%'), '100')
+    t.equal(slugify('a$b%c'), 'abc')
+
+    delete require.cache[require.resolve('../')]
+    slugify = require('../')
+  })
 })
