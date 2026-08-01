@@ -30,12 +30,13 @@
 
     var trim = options.trim === undefined ? true : options.trim
 
-    var slug = string.normalize().split('')
+    var slug = Array.from(string.normalize())
       // replace characters based on charMap
       .reduce(function (result, ch) {
         var appendChar = locale[ch];
         if (appendChar === undefined) appendChar = charMap[ch];
         if (appendChar === undefined) appendChar = ch;
+        if (appendChar === null) appendChar = '';
         if (appendChar === replacement) appendChar = ' ';
         return result + appendChar
           // remove not allowed characters

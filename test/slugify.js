@@ -285,4 +285,21 @@ describe('slugify', () => {
     delete require.cache[require.resolve('../')]
     slugify = require('../')
   })
+
+  it('handles unicode surrogate pairs', function () {
+    t.equal(slugify('💩'), '')
+    t.equal(slugify('🚀 rocket'), 'rocket')
+  })
+
+  it('supports extend with surrogate pair characters', function () {
+    slugify.extend({
+      '💩': 'poop',
+      '🚀': 'rocket'
+    })
+
+    t.equal(slugify('💩 🚀'), 'poop-rocket')
+
+    delete require.cache[require.resolve('../')]
+    slugify = require('../')
+  })
 })
