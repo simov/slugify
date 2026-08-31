@@ -32,6 +32,16 @@ describe('slugify', () => {
     t.equal(slugify('foo  bar--baz'), 'foo-bar-baz')
   })
 
+  it('replace unicode dashes', () => {
+    t.equal(slugify('foo‐bar'), 'foo-bar') // U+2010 hyphen
+    t.equal(slugify('foo‑bar'), 'foo-bar') // U+2011 non-breaking hyphen
+    t.equal(slugify('foo‒bar'), 'foo-bar') // U+2012 figure dash
+    t.equal(slugify('foo–bar'), 'foo-bar') // U+2013 en dash
+    t.equal(slugify('foo—bar'), 'foo-bar') // U+2014 em dash
+    t.equal(slugify('foo―bar'), 'foo-bar') // U+2015 horizontal bar
+    t.equal(slugify('rock — paper'), 'rock-paper')
+  })
+
   it('leave allowed chars', () => {
     var allowed = ['*', '+', '~', '.', '(', ')', '\'', '"', '!', ':', '@']
     allowed.forEach((symbol) => {
