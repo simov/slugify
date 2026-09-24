@@ -199,6 +199,15 @@ describe('slugify', () => {
     }
   })
 
+  it('uses Latvian transliteration with the lv locale', () => {
+    t.equal(
+      slugify('ĀČĒĢĪĶĻŅŠŪŽ āčēģīķļņšūž', {locale: 'lv'}),
+      'AaChEeGjIiKjLjNjShUuZh-aacheegjiikjljnjshuuzh'
+    )
+    t.equal(slugify('č', {locale: 'lv'}), 'ch')
+    t.equal(slugify('č'), 'c')
+  })
+
   it('replace serbian chars', () => {
     var charMap = {
       'đ': 'dj', 'ǌ': 'nj', 'ǉ': 'lj', 'Đ': 'DJ', 'ǋ': 'NJ', 'ǈ': 'LJ', 'ђ': 'dj', 'ј': 'j',
