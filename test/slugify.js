@@ -72,6 +72,14 @@ describe('slugify', () => {
     t.equal(slugify('foo_bar. -@-baz!', {strict: true}), 'foobar-baz')
   })
 
+  it('transliterates common superscript and subscript characters', () => {
+    t.equal(slugify('15 m³'), '15-m3')
+    t.equal(slugify('H₂O'), 'H2O')
+    t.equal(slugify('¹²³ ⁰⁴⁵⁶⁷⁸⁹'), '123-0456789')
+    t.equal(slugify('₀₁₂₃₄₅₆₇₈₉'), '0123456789')
+    t.equal(slugify('1ˢᵗ 2ⁿᵈ 3ʳᵈ 4ᵗʰ'), '1st-2nd-3rd-4th')
+  })
+
   it('options.strict - remove duplicates of the replacement character', () => {
     t.equal(slugify('foo @ bar', {strict: true}), 'foo-bar')
   })
