@@ -23,6 +23,7 @@ slugify('some string', '_')  // some_string
 ```js
 slugify('some string', {
   replacement: '-',  // replace spaces with replacement character, defaults to `-`
+  preserveReplacement: false, // keep replacement characters already in the input, defaults to `false`
   remove: undefined, // remove characters that match regex, defaults to `undefined`
   lower: false,      // convert to lower case, defaults to `false`
   strict: false,     // strip special characters except replacement, defaults to `false`
@@ -30,6 +31,11 @@ slugify('some string', {
   trim: true         // trim leading and trailing replacement chars, defaults to `true`
 })
 ```
+
+Set `preserveReplacement: true` to keep repeated or trailing replacement
+characters from the input. For example, `slugify('step -1',
+{preserveReplacement: true})` returns `step--1` while `slugify('step 1')`
+returns `step-1`. This option applies when `strict` is `false`.
 
 ## Remove
 

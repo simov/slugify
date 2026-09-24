@@ -13,6 +13,7 @@ declare function slugify(
   options?:
     | {
         replacement?: string;
+        preserveReplacement?: boolean;
         remove?: RegExp;
         lower?: boolean;
         strict?: boolean;

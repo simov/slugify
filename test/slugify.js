@@ -50,6 +50,17 @@ describe('slugify', () => {
     t.equal(slugify('foo bar baz', {replacement: ''}), 'foobarbaz')
   })
 
+  it('options.preserveReplacement keeps existing separators', () => {
+    t.equal(slugify('1952--', {preserveReplacement: true}), '1952--')
+    t.equal(slugify('step -1', {preserveReplacement: true}), 'step--1')
+    t.equal(slugify('step 1', {preserveReplacement: true}), 'step-1')
+    t.equal(slugify('step _1', {
+      replacement: '_',
+      preserveReplacement: true
+    }), 'step__1')
+    t.equal(slugify('1952--'), '1952')
+  })
+
   it('options.remove', () => {
     t.equal(slugify(
       'foo *+~.() bar \'"!:@ baz',
