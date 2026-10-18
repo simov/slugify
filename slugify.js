@@ -2,7 +2,7 @@
 ;(function (name, root, factory) {
   if (typeof exports === 'object') {
     module.exports = factory()
-    module.exports['default'] = factory()
+    module.exports['default'] = module.exports
   }
   /* istanbul ignore next */
   else if (typeof define === 'function' && define.amd) {

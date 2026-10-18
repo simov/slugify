@@ -4,6 +4,19 @@ var slugify = require('../')
 
 describe('slugify', () => {
 
+  it('shares extended character mappings with the default export', () => {
+    try {
+      slugify.extend({'@': 'at-sign'})
+      t.equal(slugify.default('@'), 'at-sign')
+      slugify.default.extend({'~': 'tilde'})
+      t.equal(slugify('~'), 'tilde')
+      t.strictEqual(slugify.default, slugify)
+    } finally {
+      delete require.cache[require.resolve('../')]
+      slugify = require('../')
+    }
+  })
+
   it('throws', () => {
     try {
       slugify(undefined)
