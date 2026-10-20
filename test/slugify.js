@@ -83,6 +83,25 @@ describe('slugify', () => {
     }), 'foo_barbaz')
   })
 
+  it('expand Latin ligatures', () => {
+    var words = {
+      'oﬀice': 'office',
+      'ﬁle': 'file',
+      'ﬂow': 'flow',
+      'oﬃce': 'office',
+      'baﬄe': 'baffle',
+      'ﬅyle': 'style',
+      'ﬆyle': 'style',
+      'Ĳssel': 'IJssel',
+      'ĳssel': 'ijssel'
+    }
+    for (var word in words) {
+      t.equal(slugify(word), words[word])
+      t.equal(slugify(word, {strict: true, lower: true}), words[word].toLowerCase())
+    }
+    t.equal(slugify('Ĳssel & ﬂow', {locale: 'nl'}), 'IJssel-en-flow')
+  })
+
   it('replace latin chars', () => {
     var charMap = {
       'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A', 'Æ': 'AE',
