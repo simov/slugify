@@ -39,7 +39,9 @@
         // plain ASCII characters, so that characters like fullwidth letters,
         // circled numbers, roman numerals, superscripts, ligatures, etc. are
         // transliterated instead of being silently dropped.
-        if (appendChar === undefined) {
+        if (appendChar === undefined && ch.charCodeAt(0) > 0x7F) {
+          // Ordinary ASCII cannot decompose into anything useful, so skip the
+          // (comparatively expensive) normalization for it.
           var decomposed = ch.normalize('NFKD');
           if (decomposed !== ch && !/[^\x20-\x7E]/.test(decomposed)) {
             appendChar = decomposed;
