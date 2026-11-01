@@ -35,6 +35,16 @@
       .reduce(function (result, ch) {
         var appendChar = locale[ch];
         if (appendChar === undefined) appendChar = charMap[ch];
+        // Fall back to the NFKD compatibility decomposition when it expands to
+        // plain ASCII characters, so that characters like fullwidth letters,
+        // circled numbers, roman numerals, superscripts, ligatures, etc. are
+        // transliterated instead of being silently dropped.
+        if (appendChar === undefined) {
+          var decomposed = ch.normalize('NFKD');
+          if (decomposed !== ch && !/[^\x20-\x7E]/.test(decomposed)) {
+            appendChar = decomposed;
+          }
+        }
         if (appendChar === undefined) appendChar = ch;
         if (appendChar === replacement) appendChar = ' ';
         return result + appendChar
