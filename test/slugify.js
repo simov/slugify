@@ -285,4 +285,14 @@ describe('slugify', () => {
     delete require.cache[require.resolve('../')]
     slugify = require('../')
   })
+  it('should transliterate characters with an ASCII NFKD compatibility decomposition', () => {
+    t.equal(slugify('ｆｕｌｌｗｉｄｔｈ ａｂｃ'), 'fullwidth-abc')
+    t.equal(slugify('①②③'), '123')
+    t.equal(slugify('henry ⅷ'), 'henry-viii')
+    t.equal(slugify('e = mc²'), 'e-mc2')
+    t.equal(slugify('№1'), 'No1')
+    t.equal(slugify('auﬀall'), 'auffall')
+    t.equal(slugify('½ cup'), 'cup')
+  })
+
 })
