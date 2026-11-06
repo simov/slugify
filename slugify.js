@@ -52,7 +52,7 @@
 
     // Replace spaces with replacement character, treating multiple consecutive
     // spaces as a single space.
-    slug = slug.replace(/\s+/g, replacement);
+    slug = slug.replace(/\s+/g, function () { return replacement });
 
     if (options.lower) {
       slug = slug.toLowerCase()
