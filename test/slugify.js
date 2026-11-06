@@ -50,6 +50,20 @@ describe('slugify', () => {
     t.equal(slugify('foo bar baz', {replacement: ''}), 'foobarbaz')
   })
 
+  it('options.replacement - literal dollar patterns', () => {
+    var replacements = ['$&', '$$', '$`', "$'", '$1', 'x$&y', '-']
+    replacements.forEach((replacement) => {
+      t.equal(slugify('foo bar baz', {replacement}),
+        'foo' + replacement + 'bar' + replacement + 'baz')
+      t.equal(slugify('foo bar', replacement), 'foo' + replacement + 'bar')
+      t.equal(slugify('foo \t\n bar', {replacement}), 'foo' + replacement + 'bar')
+    })
+    t.equal(slugify(' FOO! BAR? ', {replacement: '$&', strict: true, lower: true}),
+      'foo$&bar')
+    t.equal(slugify(' foo bar ', {replacement: '$$', trim: false}),
+      '$$foo$$bar$$')
+  })
+
   it('options.remove', () => {
     t.equal(slugify(
       'foo *+~.() bar \'"!:@ baz',
