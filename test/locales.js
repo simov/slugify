@@ -130,6 +130,14 @@ describe('locale', () => {
     )
   })
 
+  it('da - Danish greater-than transliteration', () => {
+    t.equal(slugify('10 > 5'), '10-greater-5')
+    t.equal(slugify('10 større end 5', {locale: 'da'}), '10-stoerre-end-5')
+    t.equal(slugify('10 > 5', {locale: 'da'}), '10-stoerre-end-5')
+    t.equal(slugify('10 > 5', {locale: 'da', strict: true}), '10-stoerre-end-5')
+    t.equal(slugify('10 > 5', {locale: 'da', replacement: '_'}), '10_stoerre_end_5')
+  })
+
   it('nb - Norwegian', () => {
     var alphabet =
       '& Å Æ Ø å æ ø'
