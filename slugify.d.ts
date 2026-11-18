@@ -14,6 +14,7 @@ declare function slugify(
     | {
         replacement?: string;
         remove?: RegExp;
+        replace?: RegExp;
         lower?: boolean;
         strict?: boolean;
         locale?: string;
