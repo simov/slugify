@@ -72,6 +72,27 @@ describe('slugify', () => {
     t.equal(slugify('foo_bar. -@-baz!', {strict: true}), 'foobar-baz')
   })
 
+  it('options.strictReplace', () => {
+    t.equal(slugify(
+      'foo_bar. -@-baz!',
+      {strictReplace: true}
+    ), 'foo-bar-baz')
+  })
+
+  it('options.strictReplace uses the configured replacement and trims it', () => {
+    t.equal(slugify(
+      '_foo@bar_',
+      {strictReplace: true, replacement: '_'}
+    ), 'foo_bar')
+  })
+
+  it('options.strict takes precedence over options.strictReplace', () => {
+    t.equal(slugify(
+      'foo@bar',
+      {strict: true, strictReplace: true}
+    ), 'foobar')
+  })
+
   it('options.strict - remove duplicates of the replacement character', () => {
     t.equal(slugify('foo @ bar', {strict: true}), 'foo-bar')
   })

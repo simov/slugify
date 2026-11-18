@@ -26,9 +26,21 @@ slugify('some string', {
   remove: undefined, // remove characters that match regex, defaults to `undefined`
   lower: false,      // convert to lower case, defaults to `false`
   strict: false,     // strip special characters except replacement, defaults to `false`
+  strictReplace: false, // replace special characters except replacement with replacement character, defaults to `false`
   locale: 'vi',      // language code of the locale to use
   trim: true         // trim leading and trailing replacement chars, defaults to `true`
 })
+```
+
+## Strict replace
+
+Set `strictReplace` to `true` to replace special characters with the configured
+replacement character instead of removing them. Consecutive replacements are
+collapsed and leading or trailing ones are removed when `trim` is `true`.
+When both `strict` and `strictReplace` are `true`, `strict` takes precedence.
+
+```js
+slugify('foo_bar. -@-baz!', {strictReplace: true}) // foo-bar-baz
 ```
 
 ## Remove
