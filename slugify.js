@@ -46,6 +46,10 @@
       slug = slug.replace(/[^A-Za-z0-9\s]/g, '');
     }
 
+    if (options.strictReplace) {
+      slug = slug.replace(/[^A-Za-z0-9\s]/g, ' ');
+    }
+
     if (trim) {
       slug = slug.trim()
     }
