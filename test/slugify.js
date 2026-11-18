@@ -64,6 +64,27 @@ describe('slugify', () => {
     ), 'foo-bar-bar-foo-foo-bar')
   })
 
+  it('options.replace', () => {
+    t.equal(slugify(
+      'foo*+~bar.baz',
+      {replace: /[*+~.]/g}
+    ), 'foo-bar-baz')
+  })
+
+  it('options.replace uses the configured replacement and trims it', () => {
+    t.equal(slugify(
+      '*foo*bar*',
+      {replace: /[*]/g, replacement: '_'}
+    ), 'foo_bar')
+  })
+
+  it('options.replace runs before default character removal', () => {
+    t.equal(slugify(
+      'foo/bar',
+      {replace: /\//g}
+    ), 'foo-bar')
+  })
+
   it('options.lower', () => {
     t.equal(slugify('Foo bAr baZ', {lower: true}), 'foo-bar-baz')
   })

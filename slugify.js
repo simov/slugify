@@ -30,6 +30,12 @@
 
     var trim = options.trim === undefined ? true : options.trim
 
+    // Replace matches with whitespace so they are normalized with other
+    // separators below (including trimming and duplicate removal).
+    if (options.replace) {
+      string = string.replace(options.replace, ' ')
+    }
+
     var slug = string.normalize().split('')
       // replace characters based on charMap
       .reduce(function (result, ch) {
